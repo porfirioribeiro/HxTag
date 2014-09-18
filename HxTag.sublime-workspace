@@ -1,0 +1,935 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"E",
+				"Event	js.html"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"hx-",
+				"hx-btn"
+			],
+			[
+				"gr",
+				"gray"
+			],
+			[
+				"for",
+				"form	Tag"
+			],
+			[
+				"event",
+				"eventType	var"
+			],
+			[
+				"eve",
+				"eventListener	var"
+			],
+			[
+				"even",
+				"eventType	var"
+			],
+			[
+				"thi",
+				"this"
+			],
+			[
+				"Bt",
+				"BtnGroup	hx"
+			],
+			[
+				"Btn",
+				"BtnGroup"
+			],
+			[
+				"S",
+				"StringTools"
+			],
+			[
+				"to",
+				"toLowerCase"
+			],
+			[
+				"fi",
+				"find"
+			],
+			[
+				"hx-btn",
+				"hx-btn-group"
+			],
+			[
+				"m",
+				"meta"
+			],
+			[
+				"has",
+				"hasPrototype"
+			],
+			[
+				"is",
+				"is(...)	Unknown<7>"
+			],
+			[
+				"e",
+				"expr	Null<haxe.macro.Expr>"
+			],
+			[
+				"Eleme",
+				"Element	js.html.svg"
+			],
+			[
+				"parent",
+				"parentNode"
+			],
+			[
+				"test",
+				"testIt"
+			],
+			[
+				"Elem",
+				"Element	js.html.svg"
+			],
+			[
+				"b",
+				"Button"
+			],
+			[
+				"generate",
+				"generateValue"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"Fiel",
+				"FieldDef	class"
+			],
+			[
+				"Class",
+				"ClassDef	class"
+			],
+			[
+				"Fie",
+				"FieldDef	class"
+			],
+			[
+				"Function",
+				"Function	haxe.macro.Expr"
+			],
+			[
+				"class",
+				"className	var"
+			],
+			[
+				"get",
+				"getValue"
+			],
+			[
+				"fa",
+				"fatalError"
+			],
+			[
+				"C",
+				"Context	class"
+			],
+			[
+				"se",
+				"setSize"
+			],
+			[
+				"di",
+				"DivElement"
+			],
+			[
+				"w",
+				"white"
+			],
+			[
+				"new",
+				"newVal"
+			],
+			[
+				"att",
+				"attrName"
+			],
+			[
+				"re",
+				"registerElement"
+			],
+			[
+				"p",
+				"pack"
+			],
+			[
+				"h",
+				"hasExpose"
+			],
+			[
+				"hasP",
+				"hasPropertyReflection"
+			],
+			[
+				"Ty",
+				"TypeOptions	class"
+			],
+			[
+				"el",
+				"elementType=	var"
+			],
+			[
+				"gen",
+				"genClass"
+			],
+			[
+				"in",
+				"interfaces"
+			],
+			[
+				"Co",
+				"Compiler"
+			],
+			[
+				"genE",
+				"genExpose=false	var"
+			],
+			[
+				"genC",
+				"genClassName	function"
+			],
+			[
+				"String",
+				"StringTools	class"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"pack",
+				"packClass	function"
+			],
+			[
+				"js",
+				"jsFlatten	var"
+			],
+			[
+				"Enum",
+				"EnumTools	haxe"
+			],
+			[
+				"ge",
+				"generateStatement"
+			],
+			[
+				"stat",
+				"staticField	var"
+			],
+			[
+				"ma",
+				"match"
+			],
+			[
+				"constr",
+				"constructor"
+			],
+			[
+				"ty",
+				"type"
+			],
+			[
+				"co",
+				"constructs"
+			],
+			[
+				"vv",
+				"vv1"
+			],
+			[
+				"ex",
+				"expr"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"print",
+				"printn	function"
+			],
+			[
+				"f",
+				"fields"
+			],
+			[
+				"su",
+				"superClass"
+			],
+			[
+				"de",
+				"defined"
+			],
+			[
+				"j",
+				"join"
+			],
+			[
+				"Str",
+				"String	class"
+			],
+			[
+				"d",
+				"doit"
+			],
+			[
+				"html",
+				"HTMLDivElement"
+			],
+			[
+				"hx",
+				"hx-btn"
+			],
+			[
+				"createE",
+				"createElement(...)	js.html.Element"
+			],
+			[
+				"Di",
+				"DivElement	class"
+			],
+			[
+				"array",
+				"Array<T>	class"
+			],
+			[
+				"elE",
+				"ElementList	hq"
+			],
+			[
+				"u",
+				"ul	Tag"
+			],
+			[
+				"Element",
+				"ElementList	hq"
+			],
+			[
+				"cla",
+				"className	String"
+			],
+			[
+				"El",
+				"Element	js.html.svg"
+			],
+			[
+				"Ele",
+				"ElementList	hq"
+			],
+			[
+				"D",
+				"Document"
+			],
+			[
+				"s",
+				"saturate(...)	hq.css.HSLAColor"
+			],
+			[
+				"hs",
+				"hsv()	hq.css.HSVA"
+			],
+			[
+				"HS",
+				"HSLAColor	hq.css.Color"
+			],
+			[
+				"H",
+				"HSLAColor	class"
+			],
+			[
+				"Na",
+				"NamedColors	hq.css"
+			],
+			[
+				"getT",
+				"getTypedExpr(...)	haxe.macro.Expr"
+			],
+			[
+				"t",
+				"getTypedExpr(...)	haxe.macro.Expr"
+			],
+			[
+				"pa",
+				"parseRGBA( rgbStr : String )	hq.css.RGBA"
+			],
+			[
+				"Color",
+				"ColorTools	class"
+			],
+			[
+				"Expr",
+				"ExprOf (haxe.macro.Expr)	typedef"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"g",
+				"getStyle( name:Dynamic )	Dynamic"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"rgb2hs",
+				"rgb2hsv( rgb:hq.css.RGB )	hq.css.HSV"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"getC",
+				"getComputedStyle	function"
+			],
+			[
+				"remo",
+				"removeEventListener(...)	Void"
+			],
+			[
+				"ev",
+				"events	var"
+			],
+			[
+				"cl",
+				"clickHandler=function(e){	var"
+			],
+			[
+				"rem",
+				"removeEventListener(...)	Void"
+			],
+			[
+				"inner",
+				"innerText	String"
+			],
+			[
+				"o",
+				"on(...)	Unknown<3>"
+			],
+			[
+				"Eve",
+				"EventListener	class"
+			],
+			[
+				"Li",
+				"LiveEvent (hq)	class"
+			],
+			[
+				"Even",
+				"Event (js.html)	class"
+			],
+			[
+				"hq",
+				"hq.tools	package"
+			],
+			[
+				"Stri",
+				"StringTools	class"
+			],
+			[
+				"B",
+				"Browser	class"
+			],
+			[
+				"__",
+				"__init_matches	function"
+			],
+			[
+				"St",
+				"String	class"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Haxe/Support/Hxml.sublime-build",
+	"command_palette":
+	{
+		"height": 352.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"run",
+				"Haxe: Run build"
+			],
+			[
+				"pa",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"haxe",
+				"Haxe: Restart Server"
+			],
+			[
+				"g",
+				"Haxe: Goto Anything"
+			],
+			[
+				"ha",
+				"Haxe: Find Declaration"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"help()",
+			"help(9",
+			"help",
+			"nw bin",
+			"help()",
+			"help",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' )",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/porfirio/Copy/Dev/Haxe/HxTag",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/bin",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/css",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/gen",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/macro",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/tools",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/test",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/stylus"
+	],
+	"file_history":
+	[
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/stylus/main.styl",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/macro/TagBuilder.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/macro/Tools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/macro/Type.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/tools/StringTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/tools/UID.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/Dom.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/DomTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/Tag.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/test/Main.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/stylus/hx-btn.styl",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hx/Btn.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/bin/HxTag-test.js",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/css/Color.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/css/NamedColors.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Cascade.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Css.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Data.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Event.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Polyfill.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/tools/Traversing.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/ElementList.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/dom/Element_.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/gen/ElementGen.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/gen/Generator.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/src/hx/BtnGroup.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/build.hxml",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/Expr.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/bin/package.json",
+		"/home/porfirio/Copy/Dev/Haxe/HxTag/HxTag.sublime-project",
+		"/home/porfirio/Programas/haxe/haxe/genjs.ml",
+		"/home/porfirio/Programas/haxe/haxe/typer.ml",
+		"/home/porfirio/Programas/haxe/haxe/type.ml",
+		"/home/porfirio/Programas/haxe/haxe/interp.ml",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/test/Main.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Traversing.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Css.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hx/BtnGroup.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hx/Btn.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/tools/StringTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/Dom.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/tools/UID.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/StringTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/Tools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/bin/index.html",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Data.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Event.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/HxQuery.sublime-project",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/stylus/hx-btn.styl",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/DomTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/Tag.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/ElementList.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/ElementListTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/ElementTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/Element_.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/HxQuery.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/css/Color.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/css/NamedColors.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Cascade.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hxtag/dom/tools/Polyfill.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/Dom.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/HxQuery.hxproj",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/bin/HxQuery-gen.js",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/bin/main.css",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/css/Color.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/ElementGen.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macro/TagBuilder.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/UID.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/HxQuery.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/test/Test.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/Tag.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/UID.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/build.hxml",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/tools/Traversing.hx",
+		"/home/porfirio/.config/sublime-text-3/Packages/User/Nib-Stylus.sublime-build",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/stylus/main.styl",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/stylus/",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hx/Tags.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/Generator.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/tools/Css.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/tools/Polyfill.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/tools/Event.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/tools/Data.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/HxQuery.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/bin/HxQuery.js",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/test/MainT.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/test/Builder.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/test/Tag.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/ElementList.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/Element_.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macro/Tools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/Tools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/ElementTools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/ElementListTools.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/js/html/Element.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/ExprTools.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/Printer.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macro/<null pos>",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/Context.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/Type.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macro/Type.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macros/TagBuilder.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/domx/macros/Tools.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/domx/macros/ElementBuilder.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/build-js.hxml",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/build-n.hxml",
+		"/home/porfirio/Programas/haxe/haxe/std/Type.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hx/Button.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/jsx/ElementGen.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/ExampleJSGenerator.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/haxe/macro/JSGenApi.hx",
+		"/home/porfirio/Programas/haxe/haxe/std/StdTypes.hx",
+		"/home/porfirio/Programas/haxe/haxe/common.ml",
+		"/home/porfirio/Programas/haxe/haxe/gencommon.ml",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/jsx/<null pos>",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/Element.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/css/NamedColors.hx",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/css/NamedColors",
+		"/data/Iso/Arch/manjaro-0.8.7.1-md5sum.txt",
+		"/data/Iso/Arch/manjaro-0.8.8-md5sum.txt",
+		"/data/Dev/Haxe/gd/project/gd.creator.user",
+		"/home/porfirio/Programas/haxe/lib/openfl-html5-dom/1,2,0/haxelib.json",
+		"/home/porfirio/Copy/Dev/Haxe/HxQuery/src/hq/Main.hx",
+		"/home/porfirio/Programas/haxe/lib/tink_macro/0,1,1-beta/src/tink/macro/Exprs.hx",
+		"/data/Dev/Haxe/HxQuery/bin/HxQuery.js",
+		"/data/Dev/Haxe/HxQuery/src/jsx/Dom.hx",
+		"/data/Dev/Haxe/HxQuery/src/hq/tools/Event.hx",
+		"/data/Dev/Haxe/HxQuery/src/hq/tools/Cascade.hx"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"/home/porfirio/Copy/Dev/Haxe/HxQuery/src",
+			"/home/porfirio/Copy/Dev/Haxe/HxQuery",
+			"/home/porfirio/Copy/Dev/Haxe/HxQuery/src",
+			"/home/porfirio/Programas/haxe/haxe/"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"win",
+			"Function",
+			"module_ty",
+			"generate_type",
+			"tclass",
+			"class",
+			"generate_type",
+			"api",
+			"has",
+			"api",
+			"jsx.Dom",
+			"hxtag.dom.HxQuery",
+			"hq",
+			";",
+			":",
+			"MetaAccess",
+			"Field",
+			"Metadata",
+			"Field",
+			"hx-btn-group > hx-btn:not(:first-child):not(:last-child)\n	border-radius 0",
+			"Meta",
+			"Metadata",
+			"test_btn",
+			"FMethod",
+			"Field",
+			"classtype",
+			"TBlock",
+			"complex",
+			"genPackage",
+			"has_prototype",
+			"has_property_reflection",
+			"has_class",
+			"hxClasses",
+			"genStaticValue",
+			"$estr",
+			"TypedExprDef",
+			"TypedExpr",
+			"inits",
+			"field",
+			"interface",
+			"__properties",
+			"v3",
+			"gen_class",
+			"genStaticValue",
+			"inits",
+			"__class__",
+			"generate_package_create",
+			"gen_class_field",
+			"can_gen_class_field",
+			"$hxclass",
+			"newline",
+			"$extend",
+			"$hxcla",
+			"es5",
+			"js_",
+			"hxClasses",
+			"defin",
+			"define",
+			"$estr",
+			"$bind",
+			"generateStatement",
+			"api",
+			"api.",
+			"$bind",
+			"defined",
+			"has_feature",
+			"bind",
+			"js.Browser.document",
+			"$ctx",
+			"js.html.",
+			"js.html.Element",
+			"js.html.",
+			"typedEx",
+			"typedE",
+			"type",
+			"js.Browser.document",
+			"};",
+			"(\\w*)\\s*(\\d*),(\\d*),(\\d*)",
+			"\\t\\w*\\t",
+			"GD",
+			"macro",
+			"str1",
+			"Ele",
+			"Ele,",
+			"handleEvent",
+			"LiveEvent",
+			"add",
+			"remove",
+			"add",
+			"events",
+			"registedEvents",
+			"event",
+			"ev",
+			"event",
+			"Element",
+			"proto",
+			"	public static inline function on(e:hq.Element,event:String){\n		return new OEvent(e,event);\n	}"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"hxtag.Dom",
+			"hxtag.DomTools",
+			"hxtag.dom",
+			"",
+			" ",
+			"op.hasPrototype",
+			"op.hasPropertyReflection",
+			"op.hasClass",
+			"op.hasHxClasses",
+			"$ctx",
+			"js.Browser.document",
+			"",
+			"HElement",
+			"",
+			"$ctx",
+			",a:1};",
+			"public static var $1:Color={r:$2,g:$3,b:$4};",
+			" ",
+			"gd",
+			"string",
+			"handleLiveEvent",
+			"Event",
+			"addLiveEvent",
+			"removeLiveEvent",
+			"addLiveEvent",
+			"liveEvents",
+			"registedLiveEvents",
+			"eventType",
+			"eventListener",
+			"eventType",
+			"Element.prototype",
+			"js.html.Element"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "HxTag.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,72 @@
+//
+// HxTag - Custom Elements for Haxe-JS
+// https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
+
+@import 'nib'
+
+
+hx-btn
+	background #428bca
+	border 1px solid 
+	border-color darken(@background, 5%)
+	color white
+
+	display inline-block
+	padding 6px 12px
+	margin-bottom 0
+	font-size 14px
+	font-weight 400
+	line-height 1.42857143
+	text-align center
+	white-space nowrap
+	vertical-align middle
+	cursor pointer
+	user-select none
+	border-radius 4px
+
+	&:hover
+		background-color: darken(@background, 10%);
+		border-color: darken(@border-color, 12%);
+
+	&:active
+	&/*[checkable]*/[checked]
+		background darken(@background, 10)
+		outline:0;
+		box-shadow:inset 0 3px 5px rgba(0,0,0,.2)
+		&:hover
+			background darken(@background, 10)
+
+	&[disabled]
+	fieldset[disabled] &
+		pointer-events none
+		cursor not-allowed
+		box-shadow none
+		opacity .65
+
+
+		
+hx-btn-group 
+	margin 3px 4px
+	display inline-block
+	vertical-align middle
+	// clearfix()
+	& > hx-btn
+		position relative
+		float left		
+
+
+hx-btn-group > hx-btn:not(:first-child):not(:last-child)
+	border-radius 0
+	border-left-width 0
+	// border-right-width 0
+
+hx-btn-group > hx-btn:first-child:not(:last-child)
+	border-top-right-radius 0
+	border-bottom-right-radius 0
+	// border-right-width 0
+
+hx-btn-group > hx-btn:last-child:not(:first-child)
+	border-top-left-radius 0
+	border-bottom-left-radius 0
+	border-left-width 0
+

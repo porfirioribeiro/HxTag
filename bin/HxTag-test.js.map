@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"HxTag-test.js",
+"sourceRoot":"file:///",
+"sources":["/home/porfirio/Copy/Dev/Haxe/HxTag/src/hx/Btn.hx","/home/porfirio/Copy/Dev/Haxe/HxTag/src/hxtag/macro/TagBuilder.hx","/home/porfirio/Copy/Dev/Haxe/HxTag/src/hx/BtnGroup.hx","/home/porfirio/Copy/Dev/Haxe/HxTag/src/test/Main.hx"],
+"names":[],
+"mappings":";;;;;;;;;;;;SAwBO,EC4CU;;;;kBDnCjB,PAA2B;;kBAM3B,PAA2B;;0BAC3B,OAAgF;;KAElE,6BACb;EAAI,EAAW,HAAU,AAAsB,AAAQ,KAClD,JAAI,EAAW,HAAU,AAAsB,AAAS,KACtD,LAAsB,AAAU;;iBArBjC,NAAc;EAAd;EAIN,UAAM;EACN,DAAS,AAAQ,WAAa;GAAQ,FAAC;;;aAXjC,FC+DY;EAAO,DAAoB;;aD/DvC,DCyEY;EAAC,AAAI,DAAG,AAAoB,AAAQ,KAAU,LAAuB;EAAiB;;eDvElG,JC6DY;EAAO,DAAoB;;eD7DvC,HCuEY;EAAC,AAAI,DAAG,AAAoB,AAAQ,KAAU,LAAuB;EAAiB;;;cCjFlG,HD0DU;;;;QCnDV,GACN;YAAO;;iBARD,NAAc;;;;;;;;iBCKd,NACP;;aFsByC;;;;"
+}

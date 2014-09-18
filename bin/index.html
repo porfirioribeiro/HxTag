@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>HxTag</title>
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="HxTag-test.js"></script>
+</head>
+<body>
+
+
+		
+		<hx-btn id="hxbtn">Ye</hx-btn>
+		<hx-btn-group toggle="no">
+			<hx-btn checked>a</hx-btn>
+			<hx-btn>b</hx-btn>
+			<hx-btn>c</hx-btn>
+		</hx-btn-group>
+		
+		<hx-btn checkable checked>Check-me</hx-btn>
+
+		<hx-btn-group>
+			<hx-btn checked>a</hx-btn>
+			<hx-btn>b</hx-btn>
+			<hx-btn>c</hx-btn>
+			<hx-btn>e</hx-btn>
+		</hx-btn-group>
+
+	<script>
+		if (this.process)
+			this.process.mainModule.exports.init();
+	</script>
+</body>
+</html>

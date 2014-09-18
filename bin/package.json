@@ -1,0 +1,16 @@
+{
+	"name": "Hx-Tag",
+	"description": "Demo For Hx-Tag",
+	"main": "index.html",
+	"node-main": "nw-script.js",
+	"single-instance": false,
+	
+	"window":{
+			"title": "Hx-Tag Demo",
+			"toolbar": true,
+			"show": false
+	},
+	
+	"show-dev-tools":true,
+	"save-window-state":true
+}

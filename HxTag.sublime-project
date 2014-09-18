@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"haxe_check_on_save": true,
+	"haxe_use_servermode_for_builds": true
+}

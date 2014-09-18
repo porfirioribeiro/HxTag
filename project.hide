@@ -1,0 +1,70 @@
+{
+     "type" : 2
+    ,"target" : null
+    ,"name" : "/HxTag"
+    ,"main" : "build.hxml"
+    ,"projectPackage" : null
+    ,"company" : null
+    ,"license" : null
+    ,"url" : null
+    ,"targetData" : [
+
+    ]
+    ,"files" : [
+         {
+             "path" : "src/hxtag/Tag.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 4
+        }
+        ,{
+             "path" : "src/hx/Btn.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 7
+        }
+        ,{
+             "path" : "src/hxtag/dom/css/Color.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 4
+        }
+        ,{
+             "path" : "src/hxtag/macro/TagBuilder.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 8
+        }
+        ,{
+             "path" : "src/hxtag/DomTools.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 10
+        }
+    ]
+    ,"activeFile" : "src/hxtag/DomTools.hx"
+    ,"openFLTarget" : null
+    ,"openFLBuildMode" : "Debug"
+    ,"runActionType" : 2
+    ,"runActionText" : "nw bin"
+    ,"buildActionCommand" : null
+    ,"hiddenItems" : [
+
+    ]
+    ,"showHiddenItems" : false
+}
