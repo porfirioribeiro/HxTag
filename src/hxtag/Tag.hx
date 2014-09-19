@@ -5,16 +5,17 @@
 package hxtag;
 
 import haxe.macro.Expr;
-import hxtag.tools.UID;
 @:autoBuild(hxtag.macro.TagBuilder.build())
-@:remove
 class Tag #if !macro extends js.html.Element #end{
 	macro public function on(ethis:Expr,eventType:Expr,eventListener:Expr){
-		trace(eventType);
 		return macro hxtag.dom.tools.Event.on($ethis,$eventType,$eventListener);
 	}
 
-	inline function uid(name:String=""){
-		return name+UID.next;
+	macro function uid(ethis:Expr,name:String="id_"){
+		var uid:String=name+Std.string(_UID++);
+		return macro $v{uid}
 	}
+	#if macro
+	static var _UID=0;
+	#end
 }

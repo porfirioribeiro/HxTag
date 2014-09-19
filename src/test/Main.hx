@@ -5,11 +5,11 @@
 package test;
 
 
-//import hxtag.Dom;
+import hxtag.Dom;
 //import hxtag.DomTools;
-//using hxtag.DomTools;
+using hxtag.DomTools;
 //
-//import js.Browser.*;
+import js.Browser.*;
 //
 //using haxe.macro.Tools;
 
@@ -19,26 +19,16 @@ class Main
 	function new() {trace("new");}
 	static function main() 
 	{
-//		Dom.document.on("DOMContentLoaded",ready);
-
+		Dom.document.on("DOMContentLoaded",ready);
 
 	}
 	static function ready(e){
 		trace("ready");
 
-		// var el=q("#hxbtn");
-		// // $type(el);
-		// trace(el.is(Btn));
-		// trace(el.matches("hx-btn"));
-		// trace(untyped el.constructor);
-		// trace(untyped hx.Button.create().constructor);
-		// trace(untyped  __js__("new hx.Button.Element()").constructor);
+		var els=Dom.qA("hx-btn");
+		els.each(function(el) el.on("changed",function(e) trace(e.target.checked)));
+		
 
-		// var xb=document.createElement("x-btn");
-		// xb.innerHTML="WTF";
-		// document.body.appendChild(xb);
-		// // trace(untyped __instanceof__(xb,Btn));
-		// trace(Type.createEmptyInstance(Btn));
 	}
 	
 }

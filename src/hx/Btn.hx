@@ -1,18 +1,9 @@
-
 package hx;
 
 import hxtag.Dom.*;
-import js.html.Element;
 using hxtag.DomTools;
+import js.html.Event;
 
-@:enum
-abstract BtnType(String) to String {
-    var Button = "button";
-    var Toggle = "checkbox";
-    var Radio = "radio";
-}
-
-// @:tag("hx-btn")
 class Btn extends hxtag.Tag{
 	
 	@:Attribute
@@ -21,15 +12,8 @@ class Btn extends hxtag.Tag{
 	public var checkable:Bool;
 	
 
-	//createdCallback
 	public function createdCallback(){
-// 		trace("created");
-// 		trace(getAttribute("checked"));
-// 		removeAttribute("checked");
-		// trace(checked);
-		this.on2("click",_clicked);
-// 		checked=true;
-		
+		on("click",_clicked);		
 	}
 	function attachedCallback(){
 		var p=parentT(BtnGroup);
@@ -41,20 +25,6 @@ class Btn extends hxtag.Tag{
 
 	function _clicked(e:js.html.Event){
 		checked=!checked;
-		trace(checked);
-	}
-
-	public inline function on2(eventType:String,eventListener:js.html.EventListener){
-		if (eventType=="click:") this.addEventListener("click",eventListener);
-		else if (eventType=="change") this.addEventListener("change",eventListener);
-		else			this.addEventListener(eventType,eventListener);
-		// switch (eventType) {
-		// 	case "click": 
-		// 		return this.input.addEventListener("click",eventListener);
-		// 	// case "change": return hxtag.dom.Tools.Event.on(this.input,"change",eventListener);
-		// 	// case "mouseover": return hxtag.dom.Tools.Event.on(this.label,"mouseover",eventListener);
-		// 	// case _: return hxtag.dom.Tools.Event.on(this,eventType,eventListener);
-		// 	case _: return this.addEventListener(eventType,eventListener);
-		// }
+		dispatchEvent(new Event("changed"));
 	}
 }

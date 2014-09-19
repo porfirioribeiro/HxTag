@@ -5,6 +5,9 @@ function $extend(from, fields) {
 	return proto;
 }
 var Std = function() { };
+var StringBuf = function() { };
+StringBuf.prototype = {
+};
 var hxtag = hxtag || {};
 hxtag.Tag = function() { };
 hxtag.Tag.__super__ = Element;
@@ -31,7 +34,7 @@ hx.Btn__prototype=Object.create(hxtag.Tag.prototype, {
 	}
 	},
 	createdCallback:{value: function() {
-		this.on2("click",$bind(this,this._clicked));
+		this.addEventListener("click",$bind(this,this._clicked));
 	}},
 	attachedCallback:{value: function() {
 		var p;
@@ -44,10 +47,7 @@ hx.Btn__prototype=Object.create(hxtag.Tag.prototype, {
 	}},
 	_clicked:{value: function(e) {
 		this.checked = !this.checked;
-		console.log(this.checked);
-	}},
-	on2:{value: function(eventType,eventListener) {
-		if(eventType == "click:") this.addEventListener("click",eventListener); else if(eventType == "change") this.addEventListener("change",eventListener); else this.addEventListener(eventType,eventListener);
+		this.dispatchEvent(new Event("changed"));
 	}}
 })
 hx.Btn = document.registerElement("hx-btn",{
@@ -67,12 +67,38 @@ hx.BtnGroup = document.registerElement("hx-btn-group",{
 });
 if (!hx.BtnGroup.prototype) hx.BtnGroup.prototype=hx.BtnGroup__prototype;
 hx.BtnGroup.__super__ = hxtag.Tag;
+hxtag.Dom = function() { };
 if(!hxtag.dom) hxtag.dom = {};
+if(!hxtag.dom._ElementList) hxtag.dom._ElementList = {};
+hxtag.dom._ElementList.ElementList_Impl_ = function() { };
 if(!hxtag.dom.tools) hxtag.dom.tools = {};
+hxtag.dom.tools.Event = function() { };
+hxtag.dom.tools.Event.on = function(e,eventType,eventListener) {
+	e.addEventListener(eventType,eventListener);
+};
 hxtag.dom.tools.Polyfill = function() { };
+var js = js || {};
+js.Browser = function() { };
 var test = test || {};
 test.Main = function() { };
 test.Main.main = function() {
+	hxtag.dom.tools.Event.on(window.document,"DOMContentLoaded",test.Main.ready);
+};
+test.Main.ready = function(e) {
+	console.log("ready");
+	var els;
+	var list = window.document.querySelectorAll("hx-btn");
+	els = list;
+	var _g1 = 0;
+	var _g = els.length;
+	while(_g1 < _g) {
+		var e1 = _g1++;
+		(function(el) {
+			el.addEventListener("changed",function(e2) {
+				console.log(e2.target.checked);
+			});
+		})(els[e1]);
+	}
 };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }

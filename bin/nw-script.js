@@ -54,8 +54,6 @@ exports.init=function(){
 	var gui=window.require('nw.gui');
 	var win = gui.Window.get();
 	
-	
-	console.log("win");
 	if (!initialized){
 		initialized=true;
 		init_singleInstance();
