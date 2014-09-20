@@ -5,6 +5,7 @@
 package hxtag;
 
 
+
 #if (macro || display)
 import haxe.macro.Expr;
 import haxe.macro.Context;
@@ -21,13 +22,19 @@ class Dom {
 	inline static function get_document() return untyped __js__("window.document");
 	#end
 
-	macro public static function q(query:String){
+	macro public static function q(query:String, t:Expr=null){
 		var qs=query.substr(1);
 		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro js.Browser.document.getElementById($v{qs});
 		else   if (~/^\.[a-zA-Z]*$/.match(query)) macro js.Browser.document.getElementsByClassName($v{qs})[0];
 		else   if (~/^[a-zA-Z]*$/  .match(query)) macro js.Browser.document.getElementsByTagName($v{query})[0];
-		else 							          macro js.Browser.document.querySelectorAll($v{query})[0];
-		return macro (cast $q : js.html.Element);
+		else 							          macro js.Browser.document.querySelector($v{query});
+		var ts = t.toString();
+		var type=if (ts == "null")
+			macro : js.html.Element;
+		else
+			Context.getType(t.toString()).toComplexType();
+			
+		return macro (cast $q : $type);
 	}
 
 	macro public static function qA(query:String){

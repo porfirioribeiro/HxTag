@@ -65,7 +65,6 @@ class ElementGen extends Generator {
 						var v=api.generateValue(value.typeExpr());
 						pcode.push("\tvalue: "+v);
 					}
-
 					if (f.meta.hasMeta(":_field_writable"))
 						pcode.push('\twritable: true');
 					if (f.meta.hasMeta(":_field_get")){
@@ -76,7 +75,8 @@ class ElementGen extends Generator {
 						var _set =fields.find(function(f) return f.name=='set_$field');
 						pcode.push('\tset: ' + api.generateValue(_set.expr()));
 					}
-					code.push('$field: {\n'+pcode.join(',\n')+'\n}'); 
+					if (pcode.length>0)
+						code.push('$field: {\n'+pcode.join(',\n')+'\n}'); 
 
 				default:
 			} 

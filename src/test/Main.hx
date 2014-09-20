@@ -5,6 +5,7 @@
 package test;
 
 
+import hx.Btn;
 import hxtag.Dom;
 //import hxtag.DomTools;
 using hxtag.DomTools;
@@ -28,6 +29,11 @@ class Main
 		var els=Dom.qA("hx-btn");
 		els.each(function(el) el.on("changed",function(e) trace(e.target.checked)));
 		
+		var el =	Dom.q("#hx-btn-ong");
+		var el2 =	Dom.q("#hx-btn-ong", Btn);
+
+		el.as(Btn).buttonGroup.testIt();
+		el2.buttonGroup.testIt();
 
 	}
 	

@@ -37,9 +37,8 @@ hx.Btn__prototype=Object.create(hxtag.Tag.prototype, {
 		this.addEventListener("click",$bind(this,this._clicked));
 	}},
 	attachedCallback:{value: function() {
-		var p;
-		if((this.parentNode instanceof hx.BtnGroup)) p = this.parentNode;
-		if(p != null) p.testIt();
+		if((this.parentNode instanceof hx.BtnGroup)) this.buttonGroup = this.parentNode;
+		if(this.buttonGroup != null) this.buttonGroup.testIt();
 	}},
 	detachedCallback:{value: function() {
 	}},
@@ -93,12 +92,16 @@ test.Main.ready = function(e) {
 	var _g = els.length;
 	while(_g1 < _g) {
 		var e1 = _g1++;
-		(function(el) {
-			el.addEventListener("changed",function(e2) {
+		(function(el1) {
+			el1.addEventListener("changed",function(e2) {
 				console.log(e2.target.checked);
 			});
 		})(els[e1]);
 	}
+	var el = window.document.querySelector("#hx-btn-ong");
+	var el2 = window.document.querySelector("#hx-btn-ong");
+	el.buttonGroup.testIt();
+	el2.buttonGroup.testIt();
 };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }

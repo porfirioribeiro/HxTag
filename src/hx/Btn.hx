@@ -11,14 +11,16 @@ class Btn extends hxtag.Tag{
 	@:Attribute
 	public var checkable:Bool;
 	
+	public var buttonGroup(default,null):BtnGroup;
+	
 
-	public function createdCallback(){
+	public function createdCallback() {
 		on("click",_clicked);		
 	}
-	function attachedCallback(){
-		var p=parentT(BtnGroup);
-		if (p!=null)
-			p.testIt();
+	public function attachedCallback() {
+		buttonGroup=parentT(BtnGroup);
+		if (buttonGroup!=null)
+			buttonGroup.testIt();
 	}	
 	function detachedCallback(){}	
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}

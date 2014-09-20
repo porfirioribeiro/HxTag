@@ -35,8 +35,13 @@ class Traversing {
 	public static inline function is<T:Node>(e:Node,t:Class<T>):Bool
 		return untyped __instanceof__(e,t);	
 
-	public static inline function as<T:Node>(e:Node,t:Class<T>):T
-		return is(e,t)?cast e:null;
+	public static inline function as<T:Node>(e:Node, t:Class<T>, check = false):T {
+		if (check)
+			return (untyped if (__instanceof__(e, t)) e );
+		else
+			return cast e;
+		//return is(e,t)?cast e:null;
+	}
 
 	public static function parent(e:Element,selector:String=null):Element{
 		var parent:Element = cast e.parentNode;
