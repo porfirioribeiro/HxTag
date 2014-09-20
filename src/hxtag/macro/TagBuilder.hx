@@ -20,9 +20,9 @@ class TagBuilder
 		var fields = Context.getBuildFields();
 		var klass = Context.getLocalClass().get();
 		var className = Context.getLocalClass().toString();
-		var type = Context.getLocalType();
-
-
+		var type:Type = Context.getLocalType();
+		var pos = Context.currentPos();
+		
 		if (klass.superClass==null || !klass.superClass.t.get().unify(macro : js.html.Element))
 			Context.fatalError('Class $className don\'t extends js.html.Element',klass.pos);
 
@@ -54,10 +54,28 @@ class TagBuilder
 			name:"new",
 			pos:Context.currentPos(),
 			kind:FFun({
-				expr:macro null,
+				expr:macro {},
 				ret: macro : Void,
 				args:[]
 			})
+		});
+		
+		fields.push({
+			name:"create",
+			pos:pos,
+			access:[APublic,AStatic],
+			kind:FFun( {
+				expr:macro return untyped js.Browser.document.createElement($v{tag}),
+				ret:type,
+				args:[]
+			})
+		});		
+		
+		fields.push({
+			name:"Element",
+			pos:pos,
+			access:[AStatic],
+			kind:FVar(type, macro untyped js.Browser.document.registerElement($v{tag},{prototype:$i{className}.prototype}))
 		});
 		
 		for (f in fields.copy()){
@@ -66,7 +84,7 @@ class TagBuilder
 				case FVar(t,e):
 					var fw=f.meta.getMeta(":Attribute");
 					if (fw!=null && t.unify(macro :Bool)){
-// 						f.kind=FProp("get","set",t,e);
+ 						f.kind=FProp("get","set",t,e);
 						var get={
 							name:'get_$fname',
 							kind:FFun({
@@ -74,6 +92,7 @@ class TagBuilder
 								ret: macro : Bool,
 								args: []
 							}),
+							access: [/*AInline*/],
 							pos:f.pos,
 							meta:[]
 						};
