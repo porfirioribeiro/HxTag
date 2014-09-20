@@ -33,9 +33,9 @@ class Main
 	
 		//el.on("change", function(e) trace(e));
 		//el.onchange = function(e) trace("whoa");
-		el.buttonGroup.onchange = function(e:js.html.CustomEvent) {
-			trace(e.detail.button);
-		}
+		//el.buttonGroup.onchange = function(e:js.html.CustomEvent) {
+			//trace(e.detail.button);
+		//}
 
 	}
 	
