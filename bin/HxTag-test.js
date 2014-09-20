@@ -34,11 +34,18 @@ hx.Btn__prototype=Object.create(hxtag.Tag.prototype, {
 	}
 	},
 	createdCallback:{value: function() {
-		this.addEventListener("click",$bind(this,this._clicked));
 	}},
 	attachedCallback:{value: function() {
 		if((this.parentNode instanceof hx.BtnGroup)) this.buttonGroup = this.parentNode;
-		if(this.buttonGroup != null) this.buttonGroup.testIt();
+		if(this.buttonGroup != null) {
+			this.buttonGroup.testIt();
+			if(this.buttonGroup.checkable) this.checkable = true;
+			if(this.buttonGroup.exclusive) {
+				if(this.checked) this.buttonGroup.exclusiveCheckedBtn = this;
+			}
+		}
+		if(this.checked) this.checkable = true;
+		if(this.checkable) this.addEventListener("click",$bind(this,this._clicked));
 	}},
 	detachedCallback:{value: function() {
 	}},
@@ -46,7 +53,14 @@ hx.Btn__prototype=Object.create(hxtag.Tag.prototype, {
 	}},
 	_clicked:{value: function(e) {
 		this.checked = !this.checked;
-		this.dispatchEvent(new Event("changed"));
+		this.dispatchEvent(new Event("change"));
+		if(this.buttonGroup != null) {
+			if(this.buttonGroup.exclusive) {
+				if(this.buttonGroup.exclusiveCheckedBtn != null && this.buttonGroup.exclusiveCheckedBtn != this) this.buttonGroup.exclusiveCheckedBtn.checked = false;
+				this.buttonGroup.exclusiveCheckedBtn = this;
+			}
+			this.buttonGroup.dispatchEvent(new CustomEvent("change",{ detail : { button : this}}));
+		}
 	}}
 })
 hx.Btn = document.registerElement("hx-btn",{
@@ -55,8 +69,27 @@ hx.Btn = document.registerElement("hx-btn",{
 if (!hx.Btn.prototype) hx.Btn.prototype=hx.Btn__prototype;
 hx.Btn.__super__ = hxtag.Tag;
 hx.BtnGroup__prototype=Object.create(hxtag.Tag.prototype, {
-	createdCallback:{value: function() {
-	}},
+	exclusive: {
+		get: function() {
+		return this.hasAttribute("exclusive");
+	},
+		set: function(v) {
+		if(v) this.setAttribute("exclusive",""); else this.removeAttribute("exclusive");
+		return v;
+	}
+	},
+	checkable: {
+		get: function() {
+		return this.hasAttribute("checkable");
+	},
+		set: function(v) {
+		if(v) this.setAttribute("checkable",""); else this.removeAttribute("checkable");
+		return v;
+	}
+	},
+	exclusiveCheckedBtn: {
+		writable: true
+	},
 	testIt:{value: function() {
 		console.log("btn-group:test");
 	}}
@@ -85,23 +118,10 @@ test.Main.main = function() {
 };
 test.Main.ready = function(e) {
 	console.log("ready");
-	var els;
-	var list = window.document.querySelectorAll("hx-btn");
-	els = list;
-	var _g1 = 0;
-	var _g = els.length;
-	while(_g1 < _g) {
-		var e1 = _g1++;
-		(function(el1) {
-			el1.addEventListener("changed",function(e2) {
-				console.log(e2.target.checked);
-			});
-		})(els[e1]);
-	}
 	var el = window.document.querySelector("#hx-btn-ong");
-	var el2 = window.document.querySelector("#hx-btn-ong");
-	el.buttonGroup.testIt();
-	el2.buttonGroup.testIt();
+	el.buttonGroup.onchange = function(e1) {
+		console.log(e1.detail.button);
+	};
 };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }

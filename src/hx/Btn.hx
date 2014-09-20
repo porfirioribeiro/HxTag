@@ -15,18 +15,39 @@ class Btn extends hxtag.Tag{
 	
 
 	public function createdCallback() {
-		on("click",_clicked);		
+			
 	}
 	public function attachedCallback() {
 		buttonGroup=parentT(BtnGroup);
-		if (buttonGroup!=null)
+		if (buttonGroup != null) {
 			buttonGroup.testIt();
+			if (buttonGroup.checkable)
+				checkable = true;
+			if (buttonGroup.exclusive)
+				if (checked)
+					buttonGroup.exclusiveCheckedBtn = this;
+		}
+		if (checked)
+			checkable = true;
+		if (checkable)
+			on("click",_clicked);	
 	}	
 	function detachedCallback(){}	
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
 
 	function _clicked(e:js.html.Event){
 		checked=!checked;
-		dispatchEvent(new Event("changed"));
+		dispatchEvent(new Event("change"));
+		if (buttonGroup != null) {
+			if (buttonGroup.exclusive) {
+				if (buttonGroup.exclusiveCheckedBtn!=null && buttonGroup.exclusiveCheckedBtn!=this)
+					buttonGroup.exclusiveCheckedBtn.checked = false;
+				buttonGroup.exclusiveCheckedBtn = this;
+			}
+			//var e = new js.html.CustomEvent("change",{});
+			//e.detail = { button:this };
+			buttonGroup.fireCustomEvent("change", {button:this} );
+		}
+		
 	}
 }

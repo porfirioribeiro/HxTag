@@ -16,6 +16,7 @@ package hxtag.dom.tools;
 // }
 
 using hxtag.DomTools;
+import hxtag.tools.StringTools;
 import js.Browser.*;
 import js.html.Element;
 
@@ -49,6 +50,10 @@ class Event{
 		return fn;
 	}
 
+	public static inline function fireCustomEvent(e:js.html.EventTarget, eventType:String, detail:Dynamic=null) {
+		e.dispatchEvent(untyped __new__("CustomEvent",eventType,{ detail:detail } ));
+	}
+	
 	public static inline function live(selector:String,eventType:String,eventListener:js.html.EventListener):LiveCon{
 		return addLiveEvent(selector,eventType,eventListener);
 	}
@@ -56,6 +61,8 @@ class Event{
 	public static inline function die(selector:String,eventType:String,eventListener:js.html.EventListener):Void{
 		removeLiveEvent(selector,eventType,eventListener);
 	}
+	
+	
 
 // Live Events	
 	static var registedLiveEvents:Array<String>=[];

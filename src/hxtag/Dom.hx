@@ -33,7 +33,6 @@ class Dom {
 			macro : js.html.Element;
 		else
 			Context.getType(t.toString()).toComplexType();
-			
 		return macro (cast $q : $type);
 	}
 

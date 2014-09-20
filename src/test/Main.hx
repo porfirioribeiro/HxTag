@@ -10,7 +10,7 @@ import hxtag.Dom;
 //import hxtag.DomTools;
 using hxtag.DomTools;
 //
-import js.Browser.*;
+
 //
 //using haxe.macro.Tools;
 
@@ -26,14 +26,16 @@ class Main
 	static function ready(e){
 		trace("ready");
 
-		var els=Dom.qA("hx-btn");
-		els.each(function(el) el.on("changed",function(e) trace(e.target.checked)));
+		//var els=Dom.qA("hx-btn");
+		//els.each(function(el) el.on("changed",function(e) trace(e.target.checked)));
 		
-		var el =	Dom.q("#hx-btn-ong");
-		var el2 =	Dom.q("#hx-btn-ong", Btn);
-
-		el.as(Btn).buttonGroup.testIt();
-		el2.buttonGroup.testIt();
+		var el =	Dom.q("#hx-btn-ong", Btn);
+	
+		//el.on("change", function(e) trace(e));
+		//el.onchange = function(e) trace("whoa");
+		el.buttonGroup.onchange = function(e:js.html.CustomEvent) {
+			trace(e.detail.button);
+		}
 
 	}
 	
