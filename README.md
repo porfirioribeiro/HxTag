@@ -2,7 +2,7 @@ HxTag
 =====
 
 Custom Elements for Haxe-JS
-It makes use of Haxe custom js generation habilities for generate specific js code for the custom elements classes
+It makes use of Haxe macros
 
 Example
 ----
