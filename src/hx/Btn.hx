@@ -15,7 +15,7 @@ class Btn extends hxtag.Tag{
 	
 
 	public function createdCallback() {
-			
+		
 	}
 	public function attachedCallback() {
 		buttonGroup=parentT(BtnGroup);
@@ -32,7 +32,9 @@ class Btn extends hxtag.Tag{
 		if (checkable)
 			on("click",_clicked);	
 	}	
-	function detachedCallback(){}	
+	public function detachedCallback() {
+		trace(this);
+	}
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
 
 	function _clicked(e:js.html.Event){
