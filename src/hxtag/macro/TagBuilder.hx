@@ -33,7 +33,7 @@ class TagBuilder
 		var tag = if (tagMeta!=null && tagMeta.length==1) tagMeta[0].getValue();
             else klass.pack.join("-")+"-"+klass.name.uncamelize();
 
-		klass.meta.add(":keep",[],klass.pos);
+		klass.meta.add(":keepInit",[],klass.pos);
 		klass.meta.add(":registerElement",[macro $v{tag}],klass.pos);
 
 
@@ -63,7 +63,7 @@ class TagBuilder
 		fields.push({
 			name:"create",
 			pos:pos,
-			access:[APublic,AStatic],
+			access:[APublic,AStatic,AInline],
 			kind:FFun( {
 				expr:macro return untyped js.Browser.document.createElement($v{tag}),
 				ret:type,
@@ -74,10 +74,17 @@ class TagBuilder
 		fields.push({
 			name:"Element",
 			pos:pos,
-			access:[AStatic],
+			access:[AStatic, APublic],
+			meta:[{name:":keep",pos:pos}],
 			kind:FVar(type, macro untyped js.Browser.document.registerElement($v{tag},{prototype:$i{className}.prototype}))
 		});
-		
+		for (f in fields) {
+			switch(f.kind) {
+				case FFun(_) if (~/(creat|attach|detach|attributeChang)edCallback/g.match(f.name)):
+					f.meta.add(":keep",[],f.pos);
+				case _:
+			}
+		}
 		for (f in fields.copy()){
 			var fname=f.name;
 			switch (f.kind) {

@@ -17,7 +17,7 @@ class BtnGroup extends hxtag.Tag {
 	@:allow(hx)
 	var exclusiveCheckedBtn:Btn;
 	
-	//public function createdCallback(){}
+	public function createdCallback(){}
 
 	public function testIt(){
 		trace('btn-group:test');

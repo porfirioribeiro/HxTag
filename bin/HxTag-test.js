@@ -11,11 +11,7 @@ hxtag.Tag.__super__ = Element;
 hxtag.Tag.prototype = $extend(Element.prototype,{
 });
 var hx = hx || {};
-hx.Btn = function() {
-};
-hx.Btn.create = function() {
-	return window.document.createElement("hx-btn");
-};
+hx.Btn = function() { };
 hx.Btn.__super__ = hxtag.Tag;
 hx.Btn.prototype = $extend(hxtag.Tag.prototype,{
 	createdCallback: function() {
@@ -62,29 +58,19 @@ hx.Btn.prototype = $extend(hxtag.Tag.prototype,{
 		return v;
 	}
 });
-hx.BtnGroup = function() {
-};
-hx.BtnGroup.create = function() {
-	return window.document.createElement("hx-btn-group");
-};
+hx.BtnGroup = function() { };
 hx.BtnGroup.__super__ = hxtag.Tag;
 hx.BtnGroup.prototype = $extend(hxtag.Tag.prototype,{
-	testIt: function() {
+	createdCallback: function() {
+	}
+	,testIt: function() {
 		console.log("btn-group:test");
 	}
 	,get_exclusive: function() {
 		return this.hasAttribute("exclusive");
 	}
-	,set_exclusive: function(v) {
-		if(v) this.setAttribute("exclusive",""); else this.removeAttribute("exclusive");
-		return v;
-	}
 	,get_checkable: function() {
 		return this.hasAttribute("checkable");
-	}
-	,set_checkable: function(v) {
-		if(v) this.setAttribute("checkable",""); else this.removeAttribute("checkable");
-		return v;
 	}
 });
 hxtag.Dom = function() { };
@@ -107,11 +93,12 @@ test.Main.main = function() {
 test.Main.ready = function(e) {
 	console.log("ready");
 	var el = window.document.querySelector("#hx-btn-ong");
+	el.buttonGroup.onchange = function(e1) {
+		console.log(e1.detail.button);
+	};
 };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
-hx.Btn.TAG = "hx-btn";
 hx.Btn.Element = window.document.registerElement("hx-btn",{ prototype : hx.Btn.prototype});
-hx.BtnGroup.TAG = "hx-btn-group";
 hx.BtnGroup.Element = window.document.registerElement("hx-btn-group",{ prototype : hx.BtnGroup.prototype});
 test.Main.main();
