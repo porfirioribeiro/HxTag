@@ -8,9 +8,24 @@
 	<script src="HxTag-test.js"></script>
 </head>
 <body>
-
-
-		
+	<hx-menu-bar id="main-menu">
+		<hx-menu text="File">
+			<hx-menu-item text="New"></hx-menu-item>
+			<hx-menu-item text="Save"></hx-menu-item>
+			<hx-menu-separator></hx-menu-separator>
+			<hx-menu text="Recent...">
+				<hx-menu-item text="Item 1"></hx-menu-item>
+				<hx-menu-item text="Item 2"></hx-menu-item>
+				<hx-menu-item text="Item 3"></hx-menu-item>
+			</hx-menu>
+		</hx-menu>
+		<hx-menu text="Edit">
+			<hx-menu-item text="Cut"></hx-menu-item>
+			<hx-menu-item text="Copy"></hx-menu-item>
+			<hx-menu-item text="Paste"></hx-menu-item>
+		</hx-menu>
+	</hx-menu-bar>
+<!--
 		<hx-btn id="hxbtn">Button</hx-btn>
 		<hx-btn checkable checked>Toggle Button</hx-btn>
 		
@@ -27,7 +42,7 @@
 			<hx-btn>c</hx-btn>
 			<hx-btn>e</hx-btn>
 		</hx-btn-group>
-
+-->
 	<script>
 		if (this.process)
 			this.process.mainModule.exports.init();

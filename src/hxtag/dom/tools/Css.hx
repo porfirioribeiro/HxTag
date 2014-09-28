@@ -41,6 +41,25 @@ class Css {
 	static inline function getColor(e:Element,name:String):Color{
 		return ColorTools.parseRGBA(getComputedStyle(e,name));
 	}
+	
+	inline public static function show(e:Element){
+		e.style.display="block";
+	}	
+	inline public static function hide(e:Element){
+		e.style.display="none";
+	}	
+	inline public static function toggle(e:Element){
+		if (getComputedStyle(e,"display")=="none")
+			show(e);
+		else 
+			hide(e);
+	}
+
+	inline public static function moveTo(e:Element, x:Int, y:Int) {
+		e.style.left=x+'px';
+		e.style.top=y+'px';
+	}
+
 
 	#end
 

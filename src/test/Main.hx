@@ -30,7 +30,7 @@ class Main
 
 	}
 	static function ready(e){
-		trace("ready");
+// 		trace("ready");
 
 		var btn = Btn.create();
 		btn.innerHTML = "btn";

@@ -33,7 +33,7 @@ class Btn extends hxtag.Tag{
 			on("click",_clicked);	
 	}	
 	public function detachedCallback() {
-		trace(this);
+// 		trace(this);
 	}
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
 

@@ -1,0 +1,57 @@
+$menuOpenBgColor=white
+$menuShadow=0 6px 12px rgba(0,0,0,.175)
+
+hx-menu-bar
+	display block
+	position relative
+	margin 0px
+	top 0px
+	left 0px
+	//Style
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 7px 10px; 
+	
+	& > span
+		padding 2px 5px
+		position relative
+		text-align left
+		vertical-align middle
+		&:hover,&.opened
+			border-radius 3px
+			background $menuOpenBgColor
+			
+		&.opened
+			border-radius 3px 3px 0px 0px
+			box-shadow $menuShadow
+			
+
+hx-menu
+hx-menu-bar
+hx-menu-item
+hx-menu-separator
+	cursor default
+	user-select none
+	
+hx-menu
+	display none
+	position absolute
+	background $menuOpenBgColor
+	box-shadow $menuShadow
+	
+
+	
+	hx-menu-item
+		display block
+		
+		padding 3px 10px 3px 26px
+		
+		&:hover
+			background lightgray
+
+	hx-menu-separator
+		margin 9px 0px
+		height 0px
+		display block
+		border 1px solid darkgray
+		border-bottom-color black

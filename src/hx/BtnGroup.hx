@@ -18,17 +18,15 @@ class BtnGroup extends hxtag.Tag {
 	var exclusiveCheckedBtn:Btn;
 	
 	public function createdCallback(){}
-	public function enteredView() {
-		trace("enteredView");
-	}	
+
 	public function attachedCallback() {
-		trace("attached");
+// 		trace("attached");
 	}
 	public function detachedCallback() {
-		trace("detached"+this);
+// 		trace("detached");
 	}
 
 	public function testIt(){
-		trace('btn-group:test');
+// 		trace('btn-group:test');
 	} 
 }

@@ -2,4 +2,15 @@
 // HxTag - Custom Elements for Haxe-JS
 // https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
+// Disable IE Vendor Patches
+support-for-ie = false
+// Only use Webkit vendor prefixes
+vendor-prefixes = moz webkit official
+
+@import 'nib'
+
+global-reset()
+
 @import "hx-btn"
+@import "hx-menu"
+

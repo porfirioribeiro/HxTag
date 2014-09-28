@@ -7,6 +7,9 @@ package hxtag.dom.tools;
 
 #if macro
 import haxe.macro.Expr;
+import haxe.macro.Context;
+import hxtag.macro.Tools;
+using hxtag.macro.Tools;
 #else
 // import hxtag.dom.Element;
 import js.html.Element;
@@ -24,6 +27,14 @@ class Traversing {
 	macro public static function find(e:ExprOf<Element>,query:ExprOf<String>)
 		return macro hxtag.Dom.find($e,$query);
 	
+	macro public static function as2(e:ExprOf<Element>, t:ExprOf<Class<Element>>, check:Bool = false){
+		var tp=Context.toComplexType(Context.getType(t.toString()));
+		if (check){
+			e= macro untyped if (__instanceof__($e, $t)) $e;
+		}
+		return macro (cast $e : $tp);
+	}
+	
 	// macro public static function findAll(e:ExprOf<Element>,query:String)
 	// 	return hxtag.Dom._query(e,query,true);
 
@@ -35,13 +46,9 @@ class Traversing {
 	public static inline function is<T:Node>(e:Node,t:Class<T>):Bool
 		return untyped __instanceof__(e,t);	
 
-	public static inline function as<T:Node>(e:Node, t:Class<T>, check = false):T {
-		if (check)
-			return (untyped if (__instanceof__(e, t)) e );
-		else
-			return cast e;
-		//return is(e,t)?cast e:null;
-	}
+// 	public static inline function as<T:Node>(e:Node, t:Class<T>):T {
+// 		return (untyped if (__instanceof__(e, t)) e );
+// 	}
 
 	public static function parent(e:Element,selector:String=null):Element{
 		var parent:Element = cast e.parentNode;
