@@ -1,5 +1,7 @@
 $menuOpenBgColor=white
-$menuShadow=0 6px 12px rgba(0,0,0,.175)
+$menuItemHoverColor=darkgray
+$menuShadow=0 6px 13px rgba(0, 0, 0, 0.18)
+//0 6px 12px rgba(0,0,0,.175)
 
 hx-menu-bar
 	display block
@@ -17,12 +19,15 @@ hx-menu-bar
 		position relative
 		text-align left
 		vertical-align middle
+		color #383838
+		
 		&:hover,&.opened
 			border-radius 3px
 			background $menuOpenBgColor
 			
 		&.opened
 			border-radius 3px 3px 0px 0px
+			border-bottom 1px solid $menuOpenBgColor
 			box-shadow $menuShadow
 			
 
@@ -43,15 +48,17 @@ hx-menu
 	
 	hx-menu-item
 		display block
+		color #383838
 		
 		padding 3px 10px 3px 26px
 		
 		&:hover
-			background lightgray
+			background linear-gradient(top, lighten($menuItemHoverColor,50%) 0%, $menuItemHoverColor 100%);  
 
 	hx-menu-separator
 		margin 9px 0px
-		height 0px
+		height 1px
 		display block
-		border 1px solid darkgray
-		border-bottom-color black
+		background #d0d0d0
+		//border 1px solid darkgray
+		//border-bottom-color black

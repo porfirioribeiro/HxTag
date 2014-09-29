@@ -89,6 +89,10 @@ td {
 a img {
   border: none;
 }
+body {
+  font-family: SourceSansPro, "Segoe UI", "Lucida Grande", Verdana, Arial, sans-serif;
+  font-size: 14;
+}
 hx-menu-bar .hx-menu-action {
   border: 1px solid #000;
 }
@@ -177,6 +181,7 @@ hx-menu-bar > span {
   position: relative;
   text-align: left;
   vertical-align: middle;
+  color: #383838;
 }
 hx-menu-bar > span:hover,
 hx-menu-bar > span.opened {
@@ -187,8 +192,9 @@ hx-menu-bar > span.opened {
 hx-menu-bar > span.opened {
   -webkit-border-radius: 3px 3px 0px 0px;
   border-radius: 3px 3px 0px 0px;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  border-bottom: 1px solid #fff;
+  -webkit-box-shadow: 0 6px 13px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 13px rgba(0,0,0,0.18);
 }
 hx-menu,
 hx-menu-bar,
@@ -203,20 +209,22 @@ hx-menu {
   display: none;
   position: absolute;
   background: #fff;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  -webkit-box-shadow: 0 6px 13px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 13px rgba(0,0,0,0.18);
 }
 hx-menu hx-menu-item {
   display: block;
+  color: #383838;
   padding: 3px 10px 3px 26px;
 }
 hx-menu hx-menu-item:hover {
-  background: #d3d3d3;
+  background: -moz-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
+  background: -webkit-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
+  background: linear-gradient(to bottom, #d4d4d4 0%, #a9a9a9 100%);
 }
 hx-menu hx-menu-separator {
   margin: 9px 0px;
-  height: 0px;
+  height: 1px;
   display: block;
-  border: 1px solid #a9a9a9;
-  border-bottom-color: #000;
+  background: #d0d0d0;
 }

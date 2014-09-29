@@ -81,7 +81,7 @@
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 22
+            ,"activeLine" : 36
         }
         ,{
              "path" : "src/hx/MenuBar.hx"
@@ -118,6 +118,15 @@
 
             ]
             ,"activeLine" : 33
+        }
+        ,{
+             "path" : "stylus/main.styl"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 15
         }
     ]
     ,"activeFile" : "stylus/hx-menu.styl"
