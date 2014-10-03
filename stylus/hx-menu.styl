@@ -30,6 +30,10 @@ hx-menu-bar
 			border-bottom 1px solid $menuOpenBgColor
 			box-shadow $menuShadow
 			
+	& hx-menu.show
+		animate fadeIn 0.3s
+	& hx-menu.hide
+		animate fadeOut 0.3s
 
 hx-menu
 hx-menu-bar
@@ -45,6 +49,11 @@ hx-menu
 	box-shadow $menuShadow
 	
 
+	&.show
+		display block
+		
+	&.hide
+		//display none
 	
 	hx-menu-item
 		display block

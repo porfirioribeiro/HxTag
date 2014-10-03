@@ -111,7 +111,6 @@ hx-btn {
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   -webkit-border-radius: 4px;
@@ -169,7 +168,6 @@ hx-menu-bar {
   margin: 0px;
   top: 0px;
   left: 0px;
-  background: -moz-linear-gradient(top, #efefef 0%, #bbb 100%);
   background: -webkit-linear-gradient(top, #efefef 0%, #bbb 100%);
   background: linear-gradient(to bottom, #efefef 0%, #bbb 100%);
   -webkit-box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
@@ -196,12 +194,51 @@ hx-menu-bar > span.opened {
   -webkit-box-shadow: 0 6px 13px rgba(0,0,0,0.18);
   box-shadow: 0 6px 13px rgba(0,0,0,0.18);
 }
+hx-menu-bar hx-menu.show {
+  -webkit-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+hx-menu-bar hx-menu.hide {
+  -webkit-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 hx-menu,
 hx-menu-bar,
 hx-menu-item,
 hx-menu-separator {
   cursor: default;
-  -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -212,13 +249,15 @@ hx-menu {
   -webkit-box-shadow: 0 6px 13px rgba(0,0,0,0.18);
   box-shadow: 0 6px 13px rgba(0,0,0,0.18);
 }
+hx-menu.show {
+  display: block;
+}
 hx-menu hx-menu-item {
   display: block;
   color: #383838;
   padding: 3px 10px 3px 26px;
 }
 hx-menu hx-menu-item:hover {
-  background: -moz-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
   background: -webkit-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
   background: linear-gradient(to bottom, #d4d4d4 0%, #a9a9a9 100%);
 }

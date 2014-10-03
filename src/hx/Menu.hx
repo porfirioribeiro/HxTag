@@ -91,7 +91,8 @@ class Menu extends MenuBase {
 		if (item!=null)
 			item.classList.toggle("opened",true);
 		this.moveTo(x,y);
-		this.show();
+		this.classList.toggle("show",true);
+		this.classList.toggle("hide",false);
 	}
 	
 	public function showAtElement(e:Element){
@@ -105,7 +106,8 @@ class Menu extends MenuBase {
 			item.classList.toggle("opened",false);
 		if (_menuBar!=null)
 			_menuBar.isMenuOpen=false;
-		this.hide();
+		this.classList.toggle("show",false);
+		this.classList.toggle("hide",true);
 	}
 
 }

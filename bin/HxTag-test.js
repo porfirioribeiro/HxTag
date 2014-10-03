@@ -107,7 +107,8 @@ hx.Menu.prototype = $extend(hx.MenuBase.prototype,{
 		if(this.item != null) this.item.classList.toggle("opened",true);
 		this.style.left = x + "px";
 		this.style.top = y + "px";
-		this.style.display = "block";
+		this.classList.toggle("show",true);
+		this.classList.toggle("hide",false);
 	}
 	,showAtElement: function(e) {
 		this.showAtPos(e.offsetLeft,e.offsetTop + e.offsetHeight);
@@ -116,7 +117,8 @@ hx.Menu.prototype = $extend(hx.MenuBase.prototype,{
 		this._visible = false;
 		if(this.item != null) this.item.classList.toggle("opened",false);
 		if(this._menuBar != null) this._menuBar.isMenuOpen = false;
-		this.style.display = "none";
+		this.classList.toggle("show",false);
+		this.classList.toggle("hide",true);
 	}
 });
 hx.MenuBar = function() {
