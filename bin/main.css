@@ -267,3 +267,12 @@ hx-menu hx-menu-separator {
   display: block;
   background: #d0d0d0;
 }
+hx-icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  fill: currentcolor;
+  position: relative;
+  height: 16px;
+  width: 16px;
+}

@@ -12,7 +12,7 @@
     <movie minorVersion="0" />
     <movie platform="JavaScript" />
     <movie background="#FFFFFF" />
-    <movie preferredSDK="Haxe remote 3.3.0;3.3.0;" />
+    <movie preferredSDK="Haxe 3.9.9;3.9.9;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -25,7 +25,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="False" />
-    <option additional="" />
+    <option additional="--v" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -46,8 +46,8 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Webserver" />
-    <option testMovieCommand="bin/index.html" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="$(CompilerPath)\haxe.exe -cmd &quot;nw bin &amp;&quot;" />
   </options>
   <!-- Plugin storage -->
   <storage />

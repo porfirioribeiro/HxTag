@@ -59,6 +59,29 @@ hx.BtnGroup.prototype = $extend(hxtag.Tag.prototype,{
 	,testIt: function() {
 	}
 });
+hx.Icon = function() { };
+hx.Icon.__super__ = hxtag.Tag;
+hx.Icon.prototype = $extend(hxtag.Tag.prototype,{
+	createdCallback: function() {
+		if(this.hasAttribute("src")) this._setSrc(this.getAttribute("src"));
+	}
+	,attributeChangedCallback: function(attrName,oldVal,newVal) {
+		switch(attrName) {
+		case "src":
+			this._setSrc(newVal);
+			break;
+		}
+	}
+	,_setSrc: function(src) {
+		console.log("icon: set src to: " + src);
+		this.textContent = "";
+		this.setAttribute("fit","");
+		this.style.backgroundImage = "url(" + this.getAttribute("src") + ")";
+		this.style.backgroundPosition = "center";
+		this.style.backgroundSize = "100%";
+		console.log(this);
+	}
+});
 hx.MenuBase = function() { };
 hx.MenuBase.__super__ = hxtag.Tag;
 hx.MenuBase.prototype = $extend(hxtag.Tag.prototype,{
@@ -139,6 +162,13 @@ hx.MenuSeparator = function() { };
 hx.MenuSeparator.__super__ = hx.MenuBase;
 hx.MenuSeparator.prototype = $extend(hx.MenuBase.prototype,{
 });
+hx.Meta = function() { };
+hx.Meta.__super__ = hxtag.Tag;
+hx.Meta.prototype = $extend(hxtag.Tag.prototype,{
+	createdCallback: function() {
+		this.querySelectorAll("hx-meta-item");
+	}
+});
 hxtag.Dom = function() { };
 if(!hxtag.dom) hxtag.dom = {};
 if(!hxtag.dom._ElementList) hxtag.dom._ElementList = {};
@@ -186,8 +216,10 @@ var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
 hx.Btn.Element = window.document.registerElement("hx-btn",{ prototype : hx.Btn.prototype});
 hx.BtnGroup.Element = window.document.registerElement("hx-btn-group",{ prototype : hx.BtnGroup.prototype});
+hx.Icon.Element = window.document.registerElement("hx-icon",{ prototype : hx.Icon.prototype});
 hx.Menu.Element = window.document.registerElement("hx-menu",{ prototype : hx.Menu.prototype});
 hx.MenuBar.Element = window.document.registerElement("hx-menu-bar",{ prototype : hx.MenuBar.prototype});
 hx.MenuItem.Element = window.document.registerElement("hx-menu-item",{ prototype : hx.MenuItem.prototype});
 hx.MenuSeparator.Element = window.document.registerElement("hx-menu-separator",{ prototype : hx.MenuSeparator.prototype});
+hx.Meta.Element = window.document.registerElement("hx-meta",{ prototype : hx.Meta.prototype});
 test.Main.main();
