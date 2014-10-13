@@ -73,12 +73,14 @@ class TagBuilder
 				})
 			});		
 
+			var jsClassName = if (Context.defined("js-flatten")) className.replace(".", "_") else className;
+			trace(jsClassName);
 			fields.push({
 				name:"Element",
 				pos:pos,
 				access:[AStatic, APublic],
 				meta:[{name:":keep",pos:pos}],
-				kind:FVar(type, macro untyped js.Browser.document.registerElement($v{tag},{prototype:$i{className}.prototype}))
+				kind:FVar(type, macro untyped js.Browser.document.registerElement($v{tag},{prototype:$i{jsClassName}.prototype}))
 			});
 		}
 

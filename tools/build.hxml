@@ -1,0 +1,13 @@
+-cp src
+
+--each
+-cp nodejs
+-js bin/tools.js
+-D nodejs
+-main hxtag.tools.Main
+-dce full
+
+--next
+
+-main hxtag.tools.HaxeLibMain
+-neko ../run.n

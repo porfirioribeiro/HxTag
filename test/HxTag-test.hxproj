@@ -4,7 +4,7 @@
   <output>
     <movie outputType="CustomBuild" />
     <movie input="" />
-    <movie path="bin\HxTag.js" />
+    <movie path="bin\test.js" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -17,23 +17,24 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
+    <class path="..\src" />
   </classpaths>
   <!-- Build options -->
   <build>
     <option directives="" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
-    <option mainClass="Main" />
+    <option mainClass="hxtag.test.Main" />
     <option enabledebug="False" />
-    <option additional="--v" />
+    <option additional="" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <!-- example: <library name="..." /> -->
+    <library name="hxtag" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\Main.hx" />
+    <compile path="src\hxtag\test\Main.hx" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
@@ -47,7 +48,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="$(CompilerPath)\haxe.exe -cmd &quot;nw bin &amp;&quot;" />
+    <option testMovieCommand="nw bin" />
   </options>
   <!-- Plugin storage -->
   <storage />

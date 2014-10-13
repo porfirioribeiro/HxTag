@@ -3,19 +3,19 @@
 # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
 -cp src
-
--main test.Main
+-lib hxtag
+-main hxtag.test.Main
 -dce full
-#-debug
-# -D dce-debug
-# --times
+-debug
+-D source-map-content
 
 -D no-macro-cache
-#-D source-map-content
 
-# -D js-flatten
+
+-D js-flatten
 -D js-es5
--D js-classic
+#-D js-classic
+-D analizer
 
 --macro include("hx")
 -js bin/HxTag-test.js

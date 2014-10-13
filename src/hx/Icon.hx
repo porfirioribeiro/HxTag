@@ -27,6 +27,7 @@ class Icon extends Tag
 		trace('icon: set src to: $src');
 		this.textContent = '';
 		this.setAttribute('fit', '');
+		trace(this.style);
 		this.style.backgroundImage = 'url(' + this.src + ')';
 		this.style.backgroundPosition = 'center';
 		this.style.backgroundSize = '100%';

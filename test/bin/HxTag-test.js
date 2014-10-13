@@ -1,3 +1,4 @@
+(function () { "use strict";
 function $extend(from, fields) {
 	function Inherit() {} Inherit.prototype = from; var proto = new Inherit();
 	for (var name in fields) proto[name] = fields[name];
@@ -5,27 +6,25 @@ function $extend(from, fields) {
 	return proto;
 }
 var StringBuf = function() { };
-var hxtag = hxtag || {};
-hxtag.Tag = function() { };
-hxtag.Tag.__super__ = Element;
-hxtag.Tag.prototype = $extend(Element.prototype,{
+var hxtag_Tag = function() { };
+hxtag_Tag.__super__ = Element;
+hxtag_Tag.prototype = $extend(Element.prototype,{
 });
-var hx = hx || {};
-hx.Btn = function() { };
-hx.Btn.__super__ = hxtag.Tag;
-hx.Btn.prototype = $extend(hxtag.Tag.prototype,{
+var hx_Btn = function() { };
+hx_Btn.__super__ = hxtag_Tag;
+hx_Btn.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
 	}
 	,attachedCallback: function() {
-		if((this.parentNode instanceof hx.BtnGroup)) this.buttonGroup = this.parentNode;
+		if((this.parentNode instanceof hx_BtnGroup)) this.buttonGroup = this.parentNode;
 		if(this.buttonGroup != null) {
 			this.buttonGroup.testIt();
-			if(this.buttonGroup.hasAttribute("checkable")) hxtag.dom.tools.Attribute.toggleAtt(this,"checkable",true);
+			if(this.buttonGroup.hasAttribute("checkable")) hxtag_dom_tools_Attribute.toggleAtt(this,"checkable",true);
 			if(this.buttonGroup.hasAttribute("exclusive")) {
 				if(this.hasAttribute("checked")) this.buttonGroup.exclusiveCheckedBtn = this;
 			}
 		}
-		if(this.hasAttribute("checked")) hxtag.dom.tools.Attribute.toggleAtt(this,"checkable",true);
+		if(this.hasAttribute("checked")) hxtag_dom_tools_Attribute.toggleAtt(this,"checkable",true);
 		if(this.hasAttribute("checkable")) this.addEventListener("click",$bind(this,this._clicked));
 	}
 	,detachedCallback: function() {
@@ -37,19 +36,19 @@ hx.Btn.prototype = $extend(hxtag.Tag.prototype,{
 		this.dispatchEvent(new Event("change"));
 		if(this.buttonGroup != null) {
 			if(this.buttonGroup.hasAttribute("exclusive")) {
-				if(this.buttonGroup.exclusiveCheckedBtn != null && this.buttonGroup.exclusiveCheckedBtn != this) hxtag.dom.tools.Attribute.toggleAtt(this.buttonGroup.exclusiveCheckedBtn,"checked",false);
+				if(this.buttonGroup.exclusiveCheckedBtn != null && this.buttonGroup.exclusiveCheckedBtn != this) hxtag_dom_tools_Attribute.toggleAtt(this.buttonGroup.exclusiveCheckedBtn,"checked",false);
 				this.buttonGroup.exclusiveCheckedBtn = this;
 			}
 			this.buttonGroup.dispatchEvent(new CustomEvent("change",{ detail : { button : this}}));
 		}
 	}
 	,set_checked: function(v) {
-		return hxtag.dom.tools.Attribute.toggleAtt(this,"checked",v);
+		return hxtag_dom_tools_Attribute.toggleAtt(this,"checked",v);
 	}
 });
-hx.BtnGroup = function() { };
-hx.BtnGroup.__super__ = hxtag.Tag;
-hx.BtnGroup.prototype = $extend(hxtag.Tag.prototype,{
+var hx_BtnGroup = function() { };
+hx_BtnGroup.__super__ = hxtag_Tag;
+hx_BtnGroup.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
 	}
 	,attachedCallback: function() {
@@ -59,9 +58,9 @@ hx.BtnGroup.prototype = $extend(hxtag.Tag.prototype,{
 	,testIt: function() {
 	}
 });
-hx.Icon = function() { };
-hx.Icon.__super__ = hxtag.Tag;
-hx.Icon.prototype = $extend(hxtag.Tag.prototype,{
+var hx_Icon = function() { };
+hx_Icon.__super__ = hxtag_Tag;
+hx_Icon.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
 		if(this.hasAttribute("src")) this._setSrc(this.getAttribute("src"));
 	}
@@ -76,26 +75,27 @@ hx.Icon.prototype = $extend(hxtag.Tag.prototype,{
 		console.log("icon: set src to: " + src);
 		this.textContent = "";
 		this.setAttribute("fit","");
+		console.log(this.style);
 		this.style.backgroundImage = "url(" + this.getAttribute("src") + ")";
 		this.style.backgroundPosition = "center";
 		this.style.backgroundSize = "100%";
 		console.log(this);
 	}
 });
-hx.MenuBase = function() { };
-hx.MenuBase.__super__ = hxtag.Tag;
-hx.MenuBase.prototype = $extend(hxtag.Tag.prototype,{
+var hx_MenuBase = function() { };
+hx_MenuBase.__super__ = hxtag_Tag;
+hx_MenuBase.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
 	}
 });
-hx.Menu = function() { };
-hx.Menu.__super__ = hx.MenuBase;
-hx.Menu.prototype = $extend(hx.MenuBase.prototype,{
+var hx_Menu = function() { };
+hx_Menu.__super__ = hx_MenuBase;
+hx_Menu.prototype = $extend(hx_MenuBase.prototype,{
 	createdCallback: function() {
 	}
 	,attachedCallback: function() {
-		if((this.parentElement instanceof hx.MenuBar)) this._menuBar = this.parentElement;
-		if((this.parentElement instanceof hx.Menu)) this._menu = this.parentElement;
+		if((this.parentElement instanceof hx_MenuBar)) this._menuBar = this.parentElement;
+		if((this.parentElement instanceof hx_Menu)) this._menu = this.parentElement;
 		if(this._menu != null) console.log("Item " + this.getAttribute("text") + " is on menu"); else if(this._menuBar != null) {
 			var _this = window.document;
 			this.item = _this.createElement("span");
@@ -144,50 +144,44 @@ hx.Menu.prototype = $extend(hx.MenuBase.prototype,{
 		this.classList.toggle("hide",true);
 	}
 });
-hx.MenuBar = function() {
+var hx_MenuBar = function() {
 	this.isMenuOpen = false;
 };
-hx.MenuBar.__super__ = hxtag.Tag;
-hx.MenuBar.prototype = $extend(hxtag.Tag.prototype,{
+hx_MenuBar.__super__ = hxtag_Tag;
+hx_MenuBar.prototype = $extend(hxtag_Tag.prototype,{
 });
-hx.MenuItem = function() { };
-hx.MenuItem.__super__ = hx.MenuBase;
-hx.MenuItem.prototype = $extend(hx.MenuBase.prototype,{
+var hx_MenuItem = function() { };
+hx_MenuItem.__super__ = hx_MenuBase;
+hx_MenuItem.prototype = $extend(hx_MenuBase.prototype,{
 	createdCallback: function() {
-		hx.MenuBase.prototype.createdCallback.call(this);
+		hx_MenuBase.prototype.createdCallback.call(this);
 		this.innerHTML = this.getAttribute("text");
 	}
 });
-hx.MenuSeparator = function() { };
-hx.MenuSeparator.__super__ = hx.MenuBase;
-hx.MenuSeparator.prototype = $extend(hx.MenuBase.prototype,{
+var hx_MenuSeparator = function() { };
+hx_MenuSeparator.__super__ = hx_MenuBase;
+hx_MenuSeparator.prototype = $extend(hx_MenuBase.prototype,{
 });
-hx.Meta = function() { };
-hx.Meta.__super__ = hxtag.Tag;
-hx.Meta.prototype = $extend(hxtag.Tag.prototype,{
+var hx_Meta = function() { };
+hx_Meta.__super__ = hxtag_Tag;
+hx_Meta.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
 		this.querySelectorAll("hx-meta-item");
 	}
 });
-hxtag.Dom = function() { };
-if(!hxtag.dom) hxtag.dom = {};
-if(!hxtag.dom._ElementList) hxtag.dom._ElementList = {};
-hxtag.dom._ElementList.ElementList_Impl_ = function() { };
-if(!hxtag.dom.tools) hxtag.dom.tools = {};
-hxtag.dom.tools.Attribute = function() { };
-hxtag.dom.tools.Attribute.toggleAtt = function(e,name,v) {
+var hxtag_Dom = function() { };
+var hxtag_dom__$ElementList_ElementList_$Impl_$ = function() { };
+var hxtag_dom_tools_Attribute = function() { };
+hxtag_dom_tools_Attribute.toggleAtt = function(e,name,v) {
 	if(v) return e.setAttribute(name,""); else return e.removeAttribute(name);
 };
-hxtag.dom.tools.Event = function() { };
-hxtag.dom.tools.Event.on = function(e,eventType,eventListener) {
+var hxtag_dom_tools_Event = function() { };
+hxtag_dom_tools_Event.on = function(e,eventType,eventListener) {
 	e.addEventListener(eventType,eventListener);
 };
-hxtag.dom.tools.Polyfill = function() { };
-var js = js || {};
-js.Browser = function() { };
-var test = test || {};
-test.Main = function() { };
-test.Main.main = function() {
+var hxtag_dom_tools_Polyfill = function() { };
+var hxtag_test_Main = function() { };
+hxtag_test_Main.main = function() {
 	var observer = new MutationObserver(function(records) {
 		var _g = 0;
 		while(_g < records.length) {
@@ -203,23 +197,27 @@ test.Main.main = function() {
 		}
 	});
 	observer.observe(window.document,{ childList : true, attributes : true, subtree : true});
-	hxtag.dom.tools.Event.on(window.document,"DOMContentLoaded",test.Main.ready);
+	hxtag_dom_tools_Event.on(window.document,"DOMContentLoaded",hxtag_test_Main.ready);
 };
-test.Main.ready = function(e) {
+hxtag_test_Main.ready = function(e) {
 	var btn = window.document.createElement("hx-btn");
 	btn.innerHTML = "btn";
 	window.document.body.appendChild(btn);
 	window.document.body.removeChild(btn);
 	var el = window.document.querySelector("#hx-btn-ong");
 };
+var js_Browser = function() { };
 var $_, $fid = 0;
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
-hx.Btn.Element = window.document.registerElement("hx-btn",{ prototype : hx.Btn.prototype});
-hx.BtnGroup.Element = window.document.registerElement("hx-btn-group",{ prototype : hx.BtnGroup.prototype});
-hx.Icon.Element = window.document.registerElement("hx-icon",{ prototype : hx.Icon.prototype});
-hx.Menu.Element = window.document.registerElement("hx-menu",{ prototype : hx.Menu.prototype});
-hx.MenuBar.Element = window.document.registerElement("hx-menu-bar",{ prototype : hx.MenuBar.prototype});
-hx.MenuItem.Element = window.document.registerElement("hx-menu-item",{ prototype : hx.MenuItem.prototype});
-hx.MenuSeparator.Element = window.document.registerElement("hx-menu-separator",{ prototype : hx.MenuSeparator.prototype});
-hx.Meta.Element = window.document.registerElement("hx-meta",{ prototype : hx.Meta.prototype});
-test.Main.main();
+hx_Btn.Element = window.document.registerElement("hx-btn",{ prototype : hx_Btn.prototype});
+hx_BtnGroup.Element = window.document.registerElement("hx-btn-group",{ prototype : hx_BtnGroup.prototype});
+hx_Icon.Element = window.document.registerElement("hx-icon",{ prototype : hx_Icon.prototype});
+hx_Menu.Element = window.document.registerElement("hx-menu",{ prototype : hx_Menu.prototype});
+hx_MenuBar.Element = window.document.registerElement("hx-menu-bar",{ prototype : hx_MenuBar.prototype});
+hx_MenuItem.Element = window.document.registerElement("hx-menu-item",{ prototype : hx_MenuItem.prototype});
+hx_MenuSeparator.Element = window.document.registerElement("hx-menu-separator",{ prototype : hx_MenuSeparator.prototype});
+hx_Meta.Element = window.document.registerElement("hx-meta",{ prototype : hx_Meta.prototype});
+hxtag_test_Main.main();
+})();
+
+//# sourceMappingURL=HxTag-test.js.map

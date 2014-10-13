@@ -1,0 +1,16 @@
+{
+  "name": "hxtag",
+  "description": "Hx-Tag tools",
+  "version": "0.0.1",
+  "license": "MIT",
+
+  "dependencies": {
+    "stylus": "0.45.x",
+	"nib": "1.0.x"
+  },
+  "author": "Porfírio Ribeiro <porfirioribeiro@gmail.com>",
+  "main": "tools.js",
+  "engines": {
+    "node": "*"
+  }
+}

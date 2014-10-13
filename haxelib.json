@@ -1,0 +1,10 @@
+{
+    "name": "hxtag",
+    "license": "MIT",
+    "tags": ["js", "node"],
+    "description": "hxtag",
+    "version": "0.0.1",
+    "releasenote": "First Release",
+    "contributors": ["porfirio"],
+    "classPath": "src"
+}
