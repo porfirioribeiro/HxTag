@@ -19,7 +19,7 @@ class Main
 	static function main() 
 	{
 		if (!Fs.existsSync("hxtag.json")) {
-			Console.error("Missing file hxtag.json on current directory!");
+			NodeJS.console.error("Missing file hxtag.json on current directory!");
 			NodeJS.process.exit(1);
 		}
 			

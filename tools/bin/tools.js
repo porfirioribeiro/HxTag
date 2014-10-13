@@ -19,21 +19,15 @@ haxe.ds.StringMap.prototype = {
 		return this.h.hasOwnProperty("$" + key);
 	}
 };
-var js = {};
-js.node = {};
-js.node.NodeJS = function() { };
-js.node.NodeJS.require = function(lib) {
-	return require(lib);
-};
 var hxtag = {};
 hxtag.tools = {};
 hxtag.tools.Main = function() { };
 hxtag.tools.Main.main = function() {
 	if(!js.node.Fs.existsSync("hxtag.json")) {
-		console.error("Missing file hxtag.json on current directory!");
-		process.exit(1);
+		global.console.error("Missing file hxtag.json on current directory!");
+		global.process.exit(1);
 	}
-	var args = process.argv.slice(2);
+	var args = global.process.argv.slice(2);
 	while(args.length > 0) {
 		var arg = args.shift();
 		var c = arg;
@@ -49,13 +43,15 @@ hxtag.tools.Main.main = function() {
 	if(hxtag.tools.Main.command != null) hxtag.tools.Main.command();
 };
 hxtag.tools.Main.buildStylus = function() {
-	var stylus = js.node.NodeJS.require("stylus");
+	var stylus = require("stylus");
 	console.log("stylus command");
 };
+var js = {};
+js.node = {};
 js.node.Buffer = require("buffer").Buffer;
+js.node.Fs = require("fs");
 js.node.events = {};
 js.node.events.EventEmitter = require("events").EventEmitter;
-js.node.Fs = require("fs");
 js.node.stream = {};
 js.node.stream.Readable = require("stream").Readable;
 js.node.stream.Writable = require("stream").Writable;
