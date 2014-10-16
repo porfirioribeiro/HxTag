@@ -67,7 +67,7 @@ class TagBuilder
 				pos:pos,
 				access:[APublic,AStatic,AInline],
 				kind:FFun( {
-					expr:macro return untyped js.Browser.document.createElement($v{tag}),
+					expr:macro return untyped hxtag.Dom.document.createElement($v{tag}),
 					ret:type,
 					args:[]
 				})
@@ -80,7 +80,7 @@ class TagBuilder
 				pos:pos,
 				access:[AStatic, APublic],
 				meta:[{name:":keep",pos:pos}],
-				kind:FVar(type, macro untyped js.Browser.document.registerElement($v{tag},{prototype:$i{jsClassName}.prototype}))
+				kind:FVar(type, macro untyped hxtag.Dom.document.registerElement($v{tag},{prototype:$i{jsClassName}.prototype}))
 			});
 		}
 

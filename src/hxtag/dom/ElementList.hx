@@ -39,13 +39,13 @@ abstract ElementList(ArrayAccess<Node>)  {
         return cast this[i];
 
     static public inline function getById(id:String): ElementList
-		return cast [js.Browser.document.getElementById(id)];
+		return cast [hxtag.Dom.document.getElementById(id)];
 	static public inline function getByTagName(tag:String): ElementList
-		return cast js.Browser.document.getElementsByTagName(tag);
+		return cast hxtag.Dom.document.getElementsByTagName(tag);
 	static public inline function getByClassName(name:String): ElementList
-		return cast js.Browser.document.getElementsByClassName(name);
+		return cast hxtag.Dom.document.getElementsByClassName(name);
 	static public inline function getByQuery(query:String): ElementList
-		return cast js.Browser.document.querySelectorAll(query);
+		return cast hxtag.Dom.document.querySelectorAll(query);
 		
 	public inline function each(callback:Element -> Void)
 		for (e in 0...length) callback(untyped this[e]);//Todo fix this untyped!!!

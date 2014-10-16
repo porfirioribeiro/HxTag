@@ -20,14 +20,17 @@ class Dom {
 
 	public static var document(get, never):js.html.Document;
 	inline static function get_document() return untyped __js__("window.document");
+	
+	public static var console(get, never):js.html.Console;
+	inline static function get_console() return untyped __js__("console");
 	#end
 
 	macro public static function q(query:String, t:Expr=null){
 		var qs=query.substr(1);
-		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro js.Browser.document.getElementById($v{qs});
-		else   if (~/^\.[a-zA-Z]*$/.match(query)) macro js.Browser.document.getElementsByClassName($v{qs})[0];
-		else   if (~/^[a-zA-Z]*$/  .match(query)) macro js.Browser.document.getElementsByTagName($v{query})[0];
-		else 							          macro js.Browser.document.querySelector($v{query});
+		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro hxtag.Dom.document.getElementById($v{qs});
+		else   if (~/^\.[a-zA-Z]*$/.match(query)) macro hxtag.Dom.document.getElementsByClassName($v{qs})[0];
+		else   if (~/^[a-zA-Z]*$/  .match(query)) macro hxtag.Dom.document.getElementsByTagName($v{query})[0];
+		else 							          macro hxtag.Dom.document.querySelector($v{query});
 		var ts = t.toString();
 		var type=if (ts == "null")
 			macro : js.html.Element;
@@ -38,10 +41,10 @@ class Dom {
 
 	macro public static function qA(query:String){
 		var qs=query.substr(1);
-		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro [js.Browser.document.getElementById($v{qs})];
-		else   if (~/^\.[a-zA-Z]*$/.match(query)) macro js.Browser.document.getElementsByClassName($v{qs});
-		else   if (~/^[a-zA-Z]*$/  .match(query)) macro js.Browser.document.getElementsByTagName($v{query});
-		else 							          macro js.Browser.document.querySelectorAll($v{query});
+		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro [hxtag.Dom.document.getElementById($v{qs})];
+		else   if (~/^\.[a-zA-Z]*$/.match(query)) macro hxtag.Dom.document.getElementsByClassName($v{qs});
+		else   if (~/^[a-zA-Z]*$/  .match(query)) macro hxtag.Dom.document.getElementsByTagName($v{query});
+		else 							          macro hxtag.Dom.document.querySelectorAll($v{query});
 		return macro ($q : hxtag.dom.ElementList);
 	}
 

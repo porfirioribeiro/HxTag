@@ -17,7 +17,7 @@ package hxtag.dom.tools;
 
 using hxtag.DomTools;
 import hxtag.tools.StringTools;
-import js.Browser.*;
+import hxtag.Dom;
 import js.html.Element;
 
 
@@ -80,7 +80,7 @@ class Event{
 
 	public static function addLiveEvent(selector:String,eventType:String,eventListener:js.html.EventListener):LiveCon{
 		if (untyped registedLiveEvents.indexOf(eventType)==-1){
-			document.on(eventType,Event.handleLiveEvent);
+			Dom.document.on(eventType,Event.handleLiveEvent);
 			registedLiveEvents.push(eventType);
 		}
 		if (liveEvents[eventType]==null)
@@ -97,7 +97,7 @@ class Event{
 			if (evo.selector==selector && evo.eventListener==eventListener)
 				liveEvents[eventType].remove(evo);
 		if (liveEvents[eventType].length==0){
-			js.Browser.document.off(eventType,Event.handleLiveEvent);
+			Dom.document.off(eventType,Event.handleLiveEvent);
 			registedLiveEvents.remove(eventType);
 		}
 	}
