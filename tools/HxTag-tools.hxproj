@@ -2,7 +2,7 @@
 <project version="2">
   <!-- Output SWF options -->
   <output>
-    <movie outputType="Application" />
+    <movie outputType="CustomBuild" />
     <movie input="" />
     <movie path="bin\tools.js" />
     <movie fps="0" />
@@ -12,12 +12,10 @@
     <movie minorVersion="0" />
     <movie platform="JavaScript" />
     <movie background="#FFFFFF" />
-    <movie preferredSDK="Haxe 3.9.9;3.9.9;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="nodejs" />
   </classpaths>
   <!-- Build options -->
   <build>

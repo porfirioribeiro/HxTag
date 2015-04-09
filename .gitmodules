@@ -1,3 +1,0 @@
-[submodule "tools/nodejs"]
-	path = tools/nodejs
-	url = https://github.com/HaxeFoundation/hxnodejs.git

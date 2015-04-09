@@ -1,0 +1,24 @@
+//
+// HxTag - Custom Elements for Haxe-JS
+// https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
+
+tags-other
+    color blue
+    display inline-block
+    line-height 24px
+    background white
+    vertical-align top
+    padding 3px 6px
+
+    &:not(.icon-right):not(.icon-top):not(.icon-bottom)::before
+    &.icon-left::before
+    &.icon-right::after
+        display inline-block
+        vertical-align middle
+        content url('../res/ic_attachment_24px.svg')
+
+    &.icon-top::before
+    &.icon-bottom::after
+        display block
+        text-align center
+        content url(../res/ic_attachment_24px.svg)

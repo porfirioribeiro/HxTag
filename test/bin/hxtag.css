@@ -93,6 +93,15 @@ body {
   font-family: SourceSansPro, "Segoe UI", "Lucida Grande", Verdana, Arial, sans-serif;
   font-size: 14;
 }
+hx-icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  fill: currentcolor;
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
 hx-menu-bar .hx-menu-action {
   border: 1px solid #000;
 }
@@ -112,6 +121,7 @@ hx-btn {
   vertical-align: middle;
   cursor: pointer;
   -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -163,12 +173,16 @@ hx-btn-group > hx-btn:last-child:not(:first-child) {
   border-left-width: 0;
 }
 hx-menu-bar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   display: block;
   position: relative;
   margin: 0px;
   top: 0px;
   left: 0px;
   background: -webkit-linear-gradient(top, #efefef 0%, #bbb 100%);
+  background: -moz-linear-gradient(top, #efefef 0%, #bbb 100%);
   background: linear-gradient(to bottom, #efefef 0%, #bbb 100%);
   -webkit-box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
   box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
@@ -196,6 +210,7 @@ hx-menu-bar > span.opened {
 }
 hx-menu-bar hx-menu.show {
   -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
   animation: fadeIn 0.3s;
 }
 @-webkit-keyframes fadeIn {
@@ -216,6 +231,7 @@ hx-menu-bar hx-menu.show {
 }
 hx-menu-bar hx-menu.hide {
   -webkit-animation: fadeOut 0.3s;
+  -moz-animation: fadeOut 0.3s;
   animation: fadeOut 0.3s;
 }
 @-webkit-keyframes fadeOut {
@@ -240,6 +256,7 @@ hx-menu-item,
 hx-menu-separator {
   cursor: default;
   -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
 hx-menu {
@@ -259,6 +276,7 @@ hx-menu hx-menu-item {
 }
 hx-menu hx-menu-item:hover {
   background: -webkit-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
+  background: -moz-linear-gradient(top, #d4d4d4 0%, #a9a9a9 100%);
   background: linear-gradient(to bottom, #d4d4d4 0%, #a9a9a9 100%);
 }
 hx-menu hx-menu-separator {
@@ -267,12 +285,37 @@ hx-menu hx-menu-separator {
   display: block;
   background: #d0d0d0;
 }
-hx-icon {
+my-tag {
+  color: #f00;
+  background-color: #008000;
+  border: 1px solid;
+}
+#attachment {
+  color: #00f;
+  background-color: #008000;
+  fill: #fff;
+}
+tags-other {
+  color: #00f;
+  display: inline-block;
+  line-height: 24px;
+  background: #fff;
+  vertical-align: top;
+  padding: 3px 6px;
+}
+tags-other:not(.icon-right):not(.icon-top):not(.icon-bottom)::before,
+tags-other.icon-left::before,
+tags-other.icon-right::after {
   display: inline-block;
   vertical-align: middle;
-  background-repeat: no-repeat;
-  fill: currentcolor;
-  position: relative;
-  height: 16px;
-  width: 16px;
+  content: url("../res/ic_attachment_24px.svg");
+}
+tags-other.icon-top::before,
+tags-other.icon-bottom::after {
+  display: block;
+  text-align: center;
+  content: url("../res/ic_attachment_24px.svg");
+}
+body {
+  background: #808080;
 }

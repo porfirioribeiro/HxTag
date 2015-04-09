@@ -8,7 +8,8 @@ package hxtag.dom.tools;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 #else
-import js.html.Element;
+//import js.html.Element;
+import hxtag.dom.Element;
 #end
 
 @:keepInit

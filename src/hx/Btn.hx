@@ -1,21 +1,29 @@
+//
+// HxTag - Custom Elements for Haxe-JS
+// https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
+
 package hx;
 
 import hxtag.Dom.*;
 using hxtag.DomTools;
 import js.html.Event;
 
+//Tags
+import hx.Icon;
+
+@:stylus
 class Btn extends hxtag.Tag{
-	
+
 	@:Attribute
-	public var checked:Bool;	
+	public var checked:Bool;
 	@:Attribute
 	public var checkable:Bool;
-	
+
 	public var buttonGroup(default,null):BtnGroup;
-	
+
 
 	public function createdCallback() {
-		
+
 	}
 	public function attachedCallback() {
 		buttonGroup=parentT(BtnGroup);
@@ -30,8 +38,8 @@ class Btn extends hxtag.Tag{
 		if (checked)
 			checkable = true;
 		if (checkable)
-			on("click",_clicked);	
-	}	
+			on("click",_clicked);
+	}
 	public function detachedCallback() {
 // 		trace(this);
 	}
@@ -50,6 +58,6 @@ class Btn extends hxtag.Tag{
 			//e.detail = { button:this };
 			buttonGroup.fireCustomEvent("change", {button:this} );
 		}
-		
+
 	}
 }

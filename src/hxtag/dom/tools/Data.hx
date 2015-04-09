@@ -5,8 +5,8 @@
 package hxtag.dom.tools;
 
 using hxtag.DomTools;
-//import hxtag.dom.Element;
-import js.html.Element;
+import hxtag.dom.Element;
+//import js.html.Element;
 
 class Data {
 

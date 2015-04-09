@@ -1,0 +1,18 @@
+{
+    //outDir:"binnn", 
+	//debug:true,
+    stylus: {
+        css: "hxtag.css",
+        files: ["stylus/somefile.styl"],
+        //stylus: "./hxtag.styl",
+        //cmd: "-w -u git",
+        //compress: true,
+        //sourcemap: true,
+        //whatch: true
+        //sourcemapInline: true
+    },
+    res: {
+        out: "res"
+    }
+    
+}

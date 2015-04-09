@@ -15,10 +15,10 @@ using haxe.macro.Tools;
 class Dom {
 
 	#if !macro
-	public static var window(get, never):js.html.DOMWindow;
+	public static var window(get, never):js.html.Window;
 	inline static function get_window() return untyped __js__("window");
 
-	public static var document(get, never):js.html.Document;
+	public static var document(get, never):js.html.HTMLDocument;
 	inline static function get_document() return untyped __js__("window.document");
 	
 	public static var console(get, never):js.html.Console;

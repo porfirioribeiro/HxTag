@@ -1,6 +1,10 @@
-package hxtag.tools;
-import sys.io.Process;
+//
+// HxTag - Custom Elements for Haxe-JS
+// https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
+package hxtag.tools;
+
+using StringTools;
 /**
  * ...
  * @author Porfírio
@@ -8,19 +12,58 @@ import sys.io.Process;
 class HaxeLibMain
 {
 
-	public static function main() 
+	public static function main()
 	{
 		var args = Sys.args();
 		var libDir = Sys.getCwd();
+
 		var rundir = args.pop();
-		args.unshift(libDir + "tools/bin/tools.js");
+
+		var address:String="";
+		var useServer = false;
+
+		var hxml = "build.hxml";
+
+		var hxArgs = [];
+		var fArgs = [];
+		var i = 0;
+		while (i < args.length) {
+			var arg = args[i];
+			switch(arg) {
+				case "--connect":
+					address = args[i + 1];
+					Sys.println("Connecting to Haxe server at adress: "+address);
+					hxArgs.push('--connect');
+					hxArgs.push(address);
+					i += 2;
+				case "-debug" | "debug":
+					hxArgs.push("-debug");
+					i++;
+				case "-release" | "release":
+					hxArgs.push("-D");
+					hxArgs.push("release");
+					i++;
+				case "-hx-args":
+					hxArgs = hxArgs.concat(args.slice(i + 1));
+					i = args.length;
+				case a if (a!=null && a.endsWith(".hxml")):
+					hxml = a;
+					i++;
+				case a:
+					trace("push ", a);
+					fArgs.push(a);
+					i++;
+			}
+		}
+
+		var fnArgs = fArgs.length > 0?'["' + fArgs.join('","') + '"]':"[]";
+
+		var runArgs = [
+			hxml, "-lib", "hxtag", "-D", "no-macro-cache", "--macro", 'hxtag.Builder.build($fnArgs)'
+		].concat(hxArgs);
+
 		Sys.setCwd(rundir);
-		
-		Sys.exit(Sys.command("node",args));
-		//var node = new Process("node", args);
-		//neko.Lib.print(node.stdout.readAll().toString());
-		//neko.Lib.print(node.stderr.readAll().toString());
-		//Sys.exit(node.exitCode());
+		Sys.exit(Sys.command("haxe", runArgs));
 	}
-	
+
 }

@@ -5,14 +5,15 @@
 package hxtag.dom.tools;
 
 #if !macro
-import js.html.Element;
+//import js.html.Element;
+import hxtag.dom.Element;
 
 import hxtag.Dom.*;
 import hxtag.dom.css.Color;
 
 using hxtag.DomTools;
 #else
-using tink.macro.Exprs;
+//using tink.macro.Exprs;
 import haxe.macro.Expr;
 using StringTools;
 #end
@@ -23,7 +24,7 @@ class Css {
 	/**
 	 * Get a single style from the element
 	 */
-	macro public static inline function getStyle(e:ExprOf<js.html.Element>,name:String){
+	macro public static inline function getStyle(e:ExprOf<Element>,name:String){
 		var ename=name.toExpr();
 		if (name.endsWith("-color") || name=="color"){
 

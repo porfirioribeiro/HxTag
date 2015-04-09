@@ -4,7 +4,7 @@
 
 package hxtag.dom.tools;
 
-// typedef TConnection={e:hxtag.dom.Element,eventType:String,eventListener:js.html.EventListener};
+// typedef TConnection={e:hxtag.dom.Element,eventType:String,eventListener:EventListener};
 
 // abstract Connection(TConnection) from TConnection{
 // 	public inline function connect(){
@@ -18,10 +18,13 @@ package hxtag.dom.tools;
 using hxtag.DomTools;
 import hxtag.tools.StringTools;
 import hxtag.Dom;
-import js.html.Element;
+//import js.html.Element;
+import hxtag.dom.Element;
 
+//typedef EventListener = haxe.extern.EitherType<haxe.Constraints.Function,js.html.EventListener>;
+typedef EventListener = haxe.Constraints.Function;
 
-typedef TLiveCon={selector:String,eventType:String,eventListener:js.html.EventListener};
+typedef TLiveCon={selector:String,eventType:String,eventListener:EventListener};
 
 abstract LiveCon(TLiveCon) from TLiveCon to TLiveCon{
 	public inline function die()
@@ -34,13 +37,13 @@ class Event{
 		
 	}
 
-	public static inline function on(e:js.html.EventTarget,eventType:String,eventListener:js.html.EventListener):Void
+	public static inline function on(e:js.html.EventTarget,eventType:String,eventListener:EventListener):Void
 		e.addEventListener(eventType,eventListener);
 
-	public static inline function off(e:js.html.EventTarget,eventType:String,eventListener:js.html.EventListener):Void
+	public static inline function off(e:js.html.EventTarget,eventType:String,eventListener:EventListener):Void
 		e.removeEventListener(eventType,eventListener);
 	
-	public static function one(e:js.html.EventTarget,eventType:String,eventListener:js.html.EventListener):haxe.Constraints.Function{
+	public static function one(e:js.html.EventTarget,eventType:String,eventListener:EventListener):haxe.Constraints.Function{
 		var fn=null;
 		fn=function (event){
 			eventListener(event);
@@ -54,11 +57,11 @@ class Event{
 		e.dispatchEvent(untyped __new__("CustomEvent",eventType,{ detail:detail } ));
 	}
 	
-	public static inline function live(selector:String,eventType:String,eventListener:js.html.EventListener):LiveCon{
+	public static inline function live(selector:String,eventType:String,eventListener:EventListener):LiveCon{
 		return addLiveEvent(selector,eventType,eventListener);
 	}
 
-	public static inline function die(selector:String,eventType:String,eventListener:js.html.EventListener):Void{
+	public static inline function die(selector:String,eventType:String,eventListener:EventListener):Void{
 		removeLiveEvent(selector,eventType,eventListener);
 	}
 	
@@ -78,7 +81,7 @@ class Event{
 		}
 	}
 
-	public static function addLiveEvent(selector:String,eventType:String,eventListener:js.html.EventListener):LiveCon{
+	public static function addLiveEvent(selector:String,eventType:String,eventListener:EventListener):LiveCon{
 		if (untyped registedLiveEvents.indexOf(eventType)==-1){
 			Dom.document.on(eventType,Event.handleLiveEvent);
 			registedLiveEvents.push(eventType);
@@ -90,7 +93,7 @@ class Event{
 		return con;
 	}
 
-	public static function removeLiveEvent(selector:String,eventType:String,eventListener:js.html.EventListener):Void{
+	public static function removeLiveEvent(selector:String,eventType:String,eventListener:EventListener):Void{
 		if (untyped registedLiveEvents.indexOf(eventType)==-1 || liveEvents[eventType]==null)
 			return;
 		for (evo in liveEvents[eventType])

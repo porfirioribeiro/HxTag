@@ -1,4 +1,3 @@
-
 # HxTag - Custom Elements for Haxe-JS
 # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
@@ -6,16 +5,14 @@
 -lib hxtag
 -main hxtag.test.Main
 -dce full
--debug
--D source-map-content
+#-debug
 
--D no-macro-cache
-
-
--D js-flatten
+#-D no-macro-cache
 -D js-es5
-#-D js-classic
 -D analizer
 
---macro include("hx")
+#--times
+
+#We can build hxtag directly from hxml
+#--macro hxtag.Builder.build(["stylus","res"])
 -js bin/HxTag-test.js

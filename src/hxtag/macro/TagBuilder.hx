@@ -20,7 +20,7 @@ class TagBuilder
 		var fields = Context.getBuildFields();
 		var klass = Context.getLocalClass().get();
 		var className = Context.getLocalClass().toString();
-		var type:Type = Context.getLocalType();
+		var type:AType = Context.getLocalType();
 		var pos = Context.currentPos();
 		
 		if (klass.superClass==null || !klass.superClass.t.get().unify(macro : js.html.Element))
@@ -34,7 +34,7 @@ class TagBuilder
 
 		fields.push({
 			name:"new",
-			pos:Context.currentPos(),
+			pos:pos,
 			kind:FFun({
 				expr:macro {super();},
 				ret: macro : Void,
@@ -48,11 +48,13 @@ class TagBuilder
 		var noTagMeta =klass.meta.getMeta(":noTag");
 		if (noTagMeta==null){
 			var tagMeta =klass.meta.getMeta(":tag");
-			var tag = if (tagMeta!=null && tagMeta.length==1) tagMeta[0].getValue();
-				else klass.pack.join("-")+"-"+klass.name.uncamelize();
+			var tag = klass.pack.join("-")+"-"+klass.name.uncamelize();
+            if (tagMeta != null && tagMeta.length == 1) 
+                tag=tagMeta[0].getValue();
+			else
+                klass.meta.add(":tag", [macro $v{tag}],klass.pos);
 
 			klass.meta.add(":keepInit",[],klass.pos);
-
 
 
 			fields.push({
@@ -73,8 +75,7 @@ class TagBuilder
 				})
 			});		
 
-			var jsClassName = if (Context.defined("js-flatten")) className.replace(".", "_") else className;
-			trace(jsClassName);
+			var jsClassName = if (!Context.defined("js-unflatten")) className.replace(".", "_") else className;
 			fields.push({
 				name:"Element",
 				pos:pos,

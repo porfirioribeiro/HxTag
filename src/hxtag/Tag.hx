@@ -6,8 +6,10 @@ package hxtag;
 
 import haxe.macro.Expr;
 import hxtag.tools.StringTools;
+
+@:stylus("main")
 @:autoBuild(hxtag.macro.TagBuilder.build())
-class Tag #if !macro extends js.html.Element #end{
+class Tag #if !macro extends js.html.Element #end implements hxtag.Res{
 	function new(){}
 	macro public function on(ethis:Expr,eventType:Expr,eventListener:Expr){
 		return macro hxtag.dom.tools.Event.on($ethis,$eventType,$eventListener);

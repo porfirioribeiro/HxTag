@@ -11,11 +11,12 @@ import haxe.macro.Context;
 import hxtag.macro.Tools;
 using hxtag.macro.Tools;
 #else
-// import hxtag.dom.Element;
-import js.html.Element;
+ import hxtag.dom.Element;
+//import js.html.Element;
 import js.html.Node;
 import hxtag.dom.ElementList;
 using hxtag.DomTools;
+//typedef Element = js.html.DOMElement;
 #end
 
 
@@ -57,7 +58,7 @@ class Traversing {
 		return (parent!=null && parent.nodeType != Node.DOCUMENT_FRAGMENT_NODE ) ? parent : null;
 	}
 
-	public static inline function parentT<T:Element>(e:Element,t:Class<T>):T
+	public static inline function parentT<T:Element>(e:Element,t:Class<T>):T untyped
 		return (untyped if (__instanceof__(e.parentNode, t)) e.parentNode );
 
 	public static function parents(e:Element,selector:String=null):Element{

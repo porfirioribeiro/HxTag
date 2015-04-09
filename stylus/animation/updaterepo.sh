@@ -13,17 +13,11 @@ git clone https://github.com/daneden/animate.css.git
 
 cd $tmpdir/source
 
-mkdir all
-
-mv -f */*.css all 
-
-cd all
-
-for f in *.css; do 
-	name=${f%.css}
+for f in **/*.css ; do
+	name=$(basename $f .css) 
 	echo Parsing file: $name
 	rm -f $curdir/$name.styl
-	sed "/\.$name {/,/}/d" $name.css > $curdir/$name.styl
+	sed "/\.$name {/,/}/d" $f | stylus --css > $curdir/$name.styl	
 done
 
 rm -R -f $tmpdir
