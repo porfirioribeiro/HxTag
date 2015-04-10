@@ -26,7 +26,7 @@ class Hxon
     static function objectGetfields(e:Expr):Map<String,Expr> {
         return switch (e.expr) {
             case EObjectDecl(fields): [for (f in fields) f.field=>f.expr];
-            case _: null;
+            case _: new Map();
         }
     }
 

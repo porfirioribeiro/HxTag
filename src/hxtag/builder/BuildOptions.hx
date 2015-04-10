@@ -5,12 +5,12 @@
 package hxtag.builder;
 
 /**
- * @author Porfírio
- */
+* @author Porfírio
+*/
 
 typedef Stylus = {
     ?cmd:String,
-	?files:Array<String>,
+    ?files:Array<String>,
     ?stylus:String,
     ?noCompile:Bool,
     ?keepStylus:Bool,
@@ -59,15 +59,15 @@ typedef Resources = {
 
 typedef BuildOptions = {
     ?outDir:String,
-	//?js:String,
-	?debug:Bool,
-	//?dce:String,
-	//?main:String,
+    //?js:String,
+    ?debug:Bool,
+    //?dce:String,
+    //?main:String,
     //?imports:Array<String>,
     //?cp:Array<String>,
     //?libs:Array<String>,
-	//?defines:Array<String>,
-	?stylus:Stylus,
+    //?defines:Array<String>,
+    ?stylus:Stylus,
     ?res:Resources
     //dependencies:Array<Dependency>
 

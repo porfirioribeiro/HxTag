@@ -14,7 +14,7 @@ using hxtag.DomTools;
 //import hx.Btn;
 //import hx.Menu;
 //import hxtag.test.MyTag;
-//import tags.Other;
+import tags.Other;
 
 import hx.Icon;
 

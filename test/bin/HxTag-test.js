@@ -77,9 +77,16 @@ hxtag_test_Main.main = function() {
 };
 hxtag_test_Main.ready = function(e) {
 };
+var tags_Other = function() { };
+tags_Other.__super__ = hxtag_Tag;
+tags_Other.prototype = $extend(hxtag_Tag.prototype,{
+	createdCallback: function() {
+	}
+});
 hxtag_IconSet.__iconSets = { };
 hxtag_IconSet.__iconSets.src = new hx_iconsets_Src();
 hxtag_IconSet.__iconSets.color = new hxtag_test_ColorIconSet();
 hx_Icon.Element = window.document.registerElement("hx-icon",{ prototype : hx_Icon.prototype});
+tags_Other.Element = window.document.registerElement("tags-other",{ prototype : tags_Other.prototype});
 hxtag_test_Main.main();
 })();

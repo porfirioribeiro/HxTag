@@ -1,5 +1,5 @@
 {
-    //outDir:"binnn", 
+    //outDir:"binnn",
 	//debug:true,
     stylus: {
         css: "hxtag.css",
@@ -14,5 +14,5 @@
     res: {
         out: "res"
     }
-    
+
 }

@@ -17,7 +17,8 @@ typedef ResDef = {
 	?copyFile:String,
 	?copyDir:String,
 	?copyFiles:Array<String>,
-	?copyDirs:Array<String>
+	?copyDirs:Array<String>,
+	?to:String
 }
 
 
@@ -60,16 +61,16 @@ class ResBuilder implements BaseBuilder
 							Context.error("Malformed resource declaration", resMeta.pos);
 
 
-						if (r.copyFile != null)
-							if (r.copyFiles == null)
-								r.copyFiles = [r.copyFile];
-							else
-								r.copyFiles.push(r.copyFile);
-						if (r.copyDir != null)
-							if (r.copyDirs == null)
-								r.copyDirs = [r.copyDir];
-							else
-								r.copyDirs.push(r.copyDir);
+						// if (r.copyFile != null)
+						// 	if (r.copyFiles == null)
+						// 		r.copyFiles = [r.copyFile];
+						// 	else
+						// 		r.copyFiles.push(r.copyFile);
+						// if (r.copyDir != null)
+						// 	if (r.copyDirs == null)
+						// 		r.copyDirs = [r.copyDir];
+						// 	else
+						// 		r.copyDirs.push(r.copyDir);
 
 						resources.push(r);
                     }
@@ -79,8 +80,11 @@ class ResBuilder implements BaseBuilder
 
 	public function finish() {
 		for (r in resources) {
-			for (i in 0...r.copyFiles.length)
-				trace(r.copyFiles[i]);
+			if (r.to==null)
+				r.to=options.res.out;
+			trace(r.to);
+			// for (i in 0...r.copyFiles.length)
+			// 	trace(r.copyFiles[i]);
 		}
 	}
 
