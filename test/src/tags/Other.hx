@@ -5,14 +5,15 @@ import hxtag.Dom.*;
 import hxtag.Tag;
 
 @:stylus
-@:res("ic_attachment_24px.svg","otherFile.ext",{copyFile:"file.ext",copyFiles:["one","two"]})
+@:res("img/ic_attachment_24px.svg")
+// @:res("ic_attachment_24px.svg","Other.hxs",{copyFile:"file.ext",copyFiles:["one","two"],to:"otherdir"})
 
-@:htmlImport("res/ic_attachment_24px.svg")
+@:htmlImport("bin/img/ic_attachment_24px.svg")
 class Other extends Tag {
-	
+
 	public function createdCallback() {
         //this.innerHTML = "Other Tag";
-        
+
     }
 
 }

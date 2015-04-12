@@ -13,24 +13,22 @@ import hxtag.tools.Log;
  * ...
  * @author ...
  */
+@:stylus
 class Icon extends Tag
 {
 	//@:Attribute public var src:String;
 	@:Attribute public var icon:String;
-	public var iconset(default, null):String;
+	public var iconset(default, null):IconSet;
 
-	public function createdCallback()
-	{
-		//if (this.hasAttribute("src"))
-			//_setSrc(src);
+	var _icon:hxtag.dom.Element;
 
+	public function createdCallback() {
 		if (this.hasAttribute("icon"))
 			_setIcon(icon);
 	}
 
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){
 		switch (attrName) {
-			//case "src": _setSrc(newVal);
 			case "icon": _setIcon(newVal);
 		}
 	}
@@ -44,14 +42,7 @@ class Icon extends Tag
 			Log.w('IconSet: \'$iconSet\' does not exis or is nor resgisted');
 			return;
 		}
-		IconSet.get(iconSet).applyIcon(this, icon);
+		iconset=IconSet.get(iconSet);
+		iconset.applyIcon(this, icon);
 	}
-	//function _setSrc(src:String) {
-		////trace('icon: set src to: $src');
-		//this.textContent = '';
-		//this.setAttribute('fit', '');
-		//this.style.backgroundImage = 'url(' + this.src + ')';
-		//this.style.backgroundPosition = 'center';
-		//this.style.backgroundSize = '100%';
-	//}
 }

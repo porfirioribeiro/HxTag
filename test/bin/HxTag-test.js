@@ -29,7 +29,8 @@ hx_Icon.prototype = $extend(hxtag_Tag.prototype,{
 		var iconSet = parts.shift();
 		var icon = parts.join(":");
 		if(!(iconSet in hxtag_IconSet.__iconSets)) return;
-		hxtag_IconSet.__iconSets[iconSet].applyIcon(this,icon);
+		this.iconset = hxtag_IconSet.__iconSets[iconSet];
+		this.iconset.applyIcon(this,icon);
 	}
 });
 var hxtag_IconSet = function() {

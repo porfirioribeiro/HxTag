@@ -21,7 +21,7 @@ class MyTag extends hxtag.Tag {
         trace(doc.querySelector("#attachment"));
     }
     @:keep
-    static var imports:Array<LinkElement>=[Resource.importHtml("../res/ic_attachment_24px.svg")];
+    static var imports:Array<LinkElement>=[Resource.importHtml("img/ic_attachment_24px.svg")];
     static function __init__() {
         //imports=[Resource.importHtml("../res/ic_attachment_24px.svg")];
     }

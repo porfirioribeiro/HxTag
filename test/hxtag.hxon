@@ -10,9 +10,9 @@
         //sourcemap: true,
         //whatch: true
         //sourcemapInline: true
-    },
+    }/*,
     res: {
         out: "res"
-    }
+    }*/
 
 }
