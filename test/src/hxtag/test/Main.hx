@@ -11,7 +11,7 @@ import hxtag.tools.Log;
 using hxtag.DomTools;
 
 //Tags
-//import hx.Btn;
+import hx.Btn;
 //import hx.Menu;
 //import hxtag.test.MyTag;
 import tags.Other;

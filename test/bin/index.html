@@ -9,6 +9,16 @@
 	<!--script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.6.0/webcomponents.js"></script-->
 	<!--<script src="https://raw.githubusercontent.com/WebReflection/document-register-element/master/build/document-register-element.js"></script>-->
 	<script src="HxTag-test.js"></script>
+	<style type="text/css">
+		/*hx-icon[icon="color:red"]{
+			width:100px;
+			height:100px;
+		}*/
+		hx-icon[icon^=src]{
+			width:16px;
+			height:16px;
+		}
+	</style>
 </head>
 <body>
 	<hx-menu-bar id="main-menu">
@@ -31,12 +41,12 @@
 	</hx-menu-bar>
 
 		<hx-btn id="hxbtn"><hx-icon icon="src:img/icons/wrench.png"></hx-icon> Button</hx-btn>
-		
+
 		<hx-icon icon="src:img/icons/wrench.png"></hx-icon>
 		<hx-icon icon="color:red"></hx-icon>
-		
+
 		<hx-meta type="iconset" id="silk"></hx-meta>
-        
+
         <br/>
         <br/>
         <my-tag></my-tag>
@@ -46,15 +56,18 @@
         <tags-other class="icon-right">Right</tags-other>
         <tags-other class="icon-top">Top</tags-other>
         <tags-other class="icon-bottom">Bottom</tags-other>
-<!--		
+
+		<br/>
+		<hx-btn checkable checked><hx-icon icon="src:img/icons/wrench.png"></hx-icon> Checked</hx-btn>
+<!--
 		<hx-btn checkable checked>Toggle Button</hx-btn>
-		
+
 		<hx-btn-group exclusive checkable>
 			<hx-btn checked>a</hx-btn>
 			<hx-btn id="hx-btn-ong">b</hx-btn>
 			<hx-btn>c</hx-btn>
 		</hx-btn-group>
-		
+
 
 		<hx-btn-group checkable>
 			<hx-btn checked>a</hx-btn>

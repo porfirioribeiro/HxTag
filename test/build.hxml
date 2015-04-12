@@ -5,7 +5,7 @@
 -lib hxtag
 -main hxtag.test.Main
 -dce full
-#-debug
+-debug
 
 #-D no-macro-cache
 -D js-es5

@@ -18,6 +18,8 @@ class Btn extends hxtag.Tag{
 	public var checked:Bool;
 	@:Attribute
 	public var checkable:Bool;
+	@:Attribute
+	public var icon:String;
 
 	public var buttonGroup(default,null):BtnGroup;
 
