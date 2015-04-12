@@ -15,6 +15,7 @@ var hx_Btn = function() { };
 hx_Btn.__super__ = hxtag_Tag;
 hx_Btn.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
+		if(this.hasAttribute("icon")) this.icon_changed(null,this.getAttribute("icon"));
 	}
 	,attachedCallback: function() {
 		this.buttonGroup = (this.parentNode instanceof hx_BtnGroup)?this.parentNode:null;
@@ -31,6 +32,10 @@ hx_Btn.prototype = $extend(hxtag_Tag.prototype,{
 	,detachedCallback: function() {
 	}
 	,attributeChangedCallback: function(attrName,oldVal,newVal) {
+		if(attrName == "icon") this.icon_changed(oldVal,newVal);
+	}
+	,icon_changed: function(o,n) {
+		console.log("icon changed from " + o + ", to " + n);
 	}
 	,_clicked: function(e) {
 		this.set_checked(!this.hasAttribute("checked"));
@@ -57,6 +62,8 @@ hx_BtnGroup.prototype = $extend(hxtag_Tag.prototype,{
 	,detachedCallback: function() {
 	}
 	,testIt: function() {
+	}
+	,attributeChangedCallback: function(name,o,n) {
 	}
 });
 var hx_Icon = function() { };
@@ -127,17 +134,17 @@ hxtag_test_ColorIconSet.prototype = $extend(hxtag_IconSet.prototype,{
 var hxtag_test_Main = function() { };
 hxtag_test_Main.main = function() {
 	hxtag_dom_tools_Event.on(window.document,"DOMContentLoaded",hxtag_test_Main.ready);
-	console.log(("color" in hxtag_IconSet.__iconSets));
-	console.log(("src" in hxtag_IconSet.__iconSets));
-	console.log(hxtag_IconSet.__iconSets.color);
-	console.log(hxtag_IconSet.__iconSets.src);
 };
 hxtag_test_Main.ready = function(e) {
+	var testBtn = window.document.querySelector("#test-btn");
+	testBtn.setAttribute("icon","color:blue");
 };
 var tags_Other = function() { };
 tags_Other.__super__ = hxtag_Tag;
 tags_Other.prototype = $extend(hxtag_Tag.prototype,{
 	createdCallback: function() {
+	}
+	,attributeChangedCallback: function(name,o,n) {
 	}
 });
 var $_, $fid = 0;

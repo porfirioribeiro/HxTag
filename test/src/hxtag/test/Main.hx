@@ -39,13 +39,17 @@ class Main
 
 		Dom.document.on("DOMContentLoaded",ready);
 
-		trace(IconSet.has("color"));
-		trace(IconSet.has("src"));
-		trace(IconSet.get("color"));
-		trace(IconSet.get("src"));
+		// trace(IconSet.has("color"));
+		// trace(IconSet.has("src"));
+		// trace(IconSet.get("color"));
+		// trace(IconSet.get("src"));
 	}
 	static function ready(e){
 // 		trace("ready");
+
+		var testBtn =	Dom.q("#test-btn", Btn);
+		// trace(testBtn.icon);
+		testBtn.icon="color:blue";
 
 		//var btn = Btn.create();
 		//btn.innerHTML = "btn";

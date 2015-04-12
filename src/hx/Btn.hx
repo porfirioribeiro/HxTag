@@ -47,6 +47,9 @@ class Btn extends hxtag.Tag{
 	}
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
 
+	function icon_changed(o:String,n:String){
+		trace('icon changed from $o, to $n');
+	}
 	function _clicked(e:js.html.Event){
 		checked=!checked;
 		dispatchEvent(new Event("change"));
