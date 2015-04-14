@@ -26,6 +26,11 @@ class Dom {
 	inline static function get_console() return untyped __js__("console");
 	#end
 
+	/**
+	 * Query the DOM for one matching element
+	 * @param	query
+	 * @param	t Optional infered type. Warning: no cast check is done!
+	 */
 	macro public static function q(query:String, t:Expr=null){
 		var qs=query.substr(1);
 		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro hxtag.Dom.document.getElementById($v{qs});
@@ -39,7 +44,11 @@ class Dom {
 			Context.getType(t.toString()).type();
 		return macro (cast $q : $type);
 	}
-
+	
+	/**
+	 * Query the DOM for all matching elements
+	 * @param	query
+	 */
 	macro public static function qA(query:String){
 		var qs=query.substr(1);
 		var q= if (~/^#[a-zA-Z]*$/ .match(query)) macro [hxtag.Dom.document.getElementById($v{qs})];
@@ -49,6 +58,11 @@ class Dom {
 		return macro ($q : hxtag.dom.ElementList);
 	}
 
+	/**
+	 * Query the DOM, on the specified context, for all matching elements
+	 * @param	ctx
+	 * @param	query
+	 */
 	macro public static function find(ctx:Expr,query:String){
 		var qs=query.substr(1);
 		var q= if (~/^\.[a-zA-Z]*$/.match(query)) macro $ctx.getElementsByClassName($v{qs});
@@ -57,6 +71,11 @@ class Dom {
 		return macro ($q : hxtag.dom.ElementList);
 	}
 
+	/**
+	 * Shortcut to document.createElement(name) that try to return the correct type for the tag name specified
+	 * @param	name The tag name
+	 * @param	t Optional infered type. Warning: no cast check is done!
+	 */
 	macro public static function create(name:String,t:Expr=null){
 		var ts = t.toString();
 		var type=if (ts == "null")
