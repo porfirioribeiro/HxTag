@@ -12,7 +12,6 @@
     <movie minorVersion="0" />
     <movie platform="Neko" />
     <movie background="#FFFFFF" />
-    <movie preferredSDK="Haxe 3.2.0 Remote;3.2.0 git;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -41,14 +40,14 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>$(CompilerPath)\haxe build.hxml -D target=$(TargetBuild) -$(BuildConfig)</preBuildCommand>
+  <preBuildCommand>$(CompilerPath)\haxe --connect 6000 build.hxml -D target=$(TargetBuild) -$(BuildConfig)</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="/home/porfirio/Programas/nwjs/nw bin " />
+    <option testMovieCommand="nw bin " />
   </options>
   <!-- Plugin storage -->
   <storage />

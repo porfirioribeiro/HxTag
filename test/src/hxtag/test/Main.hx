@@ -49,8 +49,11 @@ class Main
 
 		var testBtn =	Dom.q("#test-btn", Btn);
 		// trace(testBtn.icon);
+		// testBtn.icon="src:blue";
 		testBtn.icon="color:blue";
+		testBtn.icon="color:green";
 
+		$type(Dom.create("hx-btn"));
 		//var btn = Btn.create();
 		//btn.innerHTML = "btn";
 		//

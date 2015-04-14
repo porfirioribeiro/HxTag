@@ -34,8 +34,12 @@ hx_Btn.prototype = $extend(hxtag_Tag.prototype,{
 	,attributeChangedCallback: function(attrName,oldVal,newVal) {
 		if(attrName == "icon") this.icon_changed(oldVal,newVal);
 	}
-	,icon_changed: function(o,n) {
-		console.log("icon changed from " + o + ", to " + n);
+	,icon_changed: function(o,icon) {
+		if(this._icon == null) {
+			this._icon = window.document.createElement("hx-icon");
+			this.appendChild(this._icon);
+		}
+		this._icon.setAttribute("icon",icon);
 	}
 	,_clicked: function(e) {
 		this.set_checked(!this.hasAttribute("checked"));
@@ -69,27 +73,30 @@ hx_BtnGroup.prototype = $extend(hxtag_Tag.prototype,{
 var hx_Icon = function() { };
 hx_Icon.__super__ = hxtag_Tag;
 hx_Icon.prototype = $extend(hxtag_Tag.prototype,{
-	createdCallback: function() {
-		if(this.hasAttribute("icon")) this._setIcon(this.getAttribute("icon"));
-	}
-	,attributeChangedCallback: function(attrName,oldVal,newVal) {
-		switch(attrName) {
-		case "icon":
-			this._setIcon(newVal);
-			break;
-		}
-	}
-	,_setIcon: function(_icon) {
-		var parts = _icon.split(":");
+	icon_changed: function(_,newIcon) {
+		var parts = newIcon.split(":");
 		if(parts.length != 2) console.error("Icon should be in the form of 'iconset:icon-name'");
 		var iconSet = parts.shift();
 		var icon = parts.join(":");
 		if(!(iconSet in hxtag_IconSet.__iconSets)) {
-			console.warn("IconSet: '" + iconSet + "' does not exis or is nor resgisted");
+			console.warn("IconSet: '" + iconSet + "' does not exis or is not resgisted");
 			return;
 		}
-		this.iconset = hxtag_IconSet.__iconSets[iconSet];
-		this.iconset.applyIcon(this,icon);
+		var _iconset = hxtag_IconSet.__iconSets[iconSet];
+		_iconset.applyIcon(this,icon);
+		this.iconset = _iconset;
+	}
+	,reset: function(el) {
+		if(this.element != null) this.removeChild(this.element);
+		if(el == null) return;
+		this.element = el;
+		this.appendChild(this.element);
+	}
+	,createdCallback: function() {
+		if(this.hasAttribute("icon")) this.icon_changed(null,this.getAttribute("icon"));
+	}
+	,attributeChangedCallback: function(name,o,n) {
+		if(name == "icon") this.icon_changed(o,n);
 	}
 });
 var hxtag_IconSet = function() {
@@ -104,12 +111,16 @@ var hx_iconsets_Src = function() {
 hx_iconsets_Src.__super__ = hxtag_IconSet;
 hx_iconsets_Src.prototype = $extend(hxtag_IconSet.prototype,{
 	applyIcon: function(icon,name) {
-		console.log("Applying icon: " + name);
-		icon.textContent = "";
-		icon.setAttribute("fit","");
-		icon.style.backgroundImage = "url(" + name + ")";
-		icon.style.backgroundPosition = "center";
-		icon.style.backgroundSize = "100%";
+		console.log("Applying icon: " + name + " ");
+		if(!(icon.iconset instanceof hx_iconsets_Src)) {
+			icon.reset(window.document.createElement("div"));
+			icon.element.textContent = "";
+			icon.element.setAttribute("fit","");
+			icon.element.style.backgroundPosition = "center";
+			icon.element.style.backgroundSize = "100%";
+			icon.element.style.height = "100%";
+		}
+		icon.element.style.backgroundImage = "url(" + name + ")";
 	}
 });
 var hxtag_dom_tools_Attribute = function() { };
@@ -128,7 +139,15 @@ hxtag_test_ColorIconSet.__super__ = hxtag_IconSet;
 hxtag_test_ColorIconSet.prototype = $extend(hxtag_IconSet.prototype,{
 	applyIcon: function(icon,name) {
 		console.log("Applying icon: " + name);
-		icon.style.backgroundColor = name;
+		if(!(icon.iconset instanceof hxtag_test_ColorIconSet)) {
+			icon.reset(window.document.createElement("div"));
+			icon.element.textContent = "";
+			icon.element.setAttribute("fit","");
+			icon.element.style.backgroundPosition = "center";
+			icon.element.style.backgroundSize = "100%";
+			icon.element.style.height = "100%";
+		}
+		icon.element.style.backgroundColor = name;
 	}
 });
 var hxtag_test_Main = function() { };
@@ -138,6 +157,8 @@ hxtag_test_Main.main = function() {
 hxtag_test_Main.ready = function(e) {
 	var testBtn = window.document.querySelector("#test-btn");
 	testBtn.setAttribute("icon","color:blue");
+	testBtn.setAttribute("icon","color:green");
+	window.document.createElement("hx-btn");
 };
 var tags_Other = function() { };
 tags_Other.__super__ = hxtag_Tag;

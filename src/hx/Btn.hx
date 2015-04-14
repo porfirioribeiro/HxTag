@@ -23,6 +23,7 @@ class Btn extends hxtag.Tag{
 
 	public var buttonGroup(default,null):BtnGroup;
 
+	var _icon:Icon;
 
 	public function createdCallback() {
 
@@ -47,8 +48,12 @@ class Btn extends hxtag.Tag{
 	}
 	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
 
-	function icon_changed(o:String,n:String){
-		trace('icon changed from $o, to $n');
+	function icon_changed(o:String,icon:String){
+		if (_icon==null){
+			_icon=Icon.create();
+			this.appendChild(_icon);
+		}
+		_icon.icon=icon;
 	}
 	function _clicked(e:js.html.Event){
 		checked=!checked;

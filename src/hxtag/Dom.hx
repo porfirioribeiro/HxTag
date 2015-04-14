@@ -9,8 +9,9 @@ package hxtag;
 #if (macro || display)
 import haxe.macro.Expr;
 import haxe.macro.Context;
-using haxe.macro.Tools;
+using hxtag.macro.Tools;
 #end
+using hxtag.tools.StringTools;
 
 class Dom {
 
@@ -20,7 +21,7 @@ class Dom {
 
 	public static var document(get, never):js.html.HTMLDocument;
 	inline static function get_document() return untyped __js__("window.document");
-	
+
 	public static var console(get, never):js.html.Console;
 	inline static function get_console() return untyped __js__("console");
 	#end
@@ -35,7 +36,7 @@ class Dom {
 		var type=if (ts == "null")
 			macro : js.html.Element;
 		else
-			Context.getType(t.toString()).toComplexType();
+			Context.getType(t.toString()).type();
 		return macro (cast $q : $type);
 	}
 
@@ -56,5 +57,26 @@ class Dom {
 		return macro ($q : hxtag.dom.ElementList);
 	}
 
+	macro public static function create(name:String,t:Expr=null){
+		var ts = t.toString();
 
+
+		var type=if (ts == "null")
+			try{
+				Context.getType(tagToClass(name)).type();
+			}catch(e:Dynamic){
+				macro : js.html.Element;
+			}
+		else
+			Context.getType(ts).type();
+		return macro (cast hxtag.Dom.document.createElement($v{name}) : $type);
+	}
+
+	static function tagToClass(tag:String){
+		return switch (tag){
+			case 'a':'js.html.AnchorElement';
+			case 'br': 'js.html.BRElement';
+			case t : 'js.html.'+t.capitalize()+'Element';
+		};
+	}
 }

@@ -6,7 +6,8 @@ package hxtag.test;
 
 import hx.Icon;
 import hxtag.IconSet;
-
+import hxtag.tools.JS.*;
+import hxtag.Dom;
 /**
  * ...
  * @author Porfirio
@@ -19,7 +20,16 @@ class ColorIconSet extends IconSet{
 
 	override public function applyIcon(icon:Icon, name:String) {
 		trace('Applying icon: $name');
-		icon.style.backgroundColor = name;
+		if (!instanceOf(icon.iconset,ColorIconSet)){
+			// icon.reset(hx.Btn.create());
+			icon.reset(Dom.create("div"));
+			icon.element.textContent = '';
+	      	icon.element.setAttribute('fit', '');
+	      	icon.element.style.backgroundPosition = 'center';
+	      	icon.element.style.backgroundSize = '100%';
+			icon.element.style.height = '100%';
+		}
+		icon.element.style.backgroundColor = name;
 	}
 
 }
