@@ -53,7 +53,7 @@ class Main
 		testBtn.icon="color:blue";
 		testBtn.icon="color:green";
 
-		$type(Dom.create("hx-btn"));
+		//Dom.create("hx-btn");
 		//var btn = Btn.create();
 		//btn.innerHTML = "btn";
 		//

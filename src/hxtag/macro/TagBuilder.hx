@@ -115,7 +115,7 @@ class TagBuilder
 						var eget,eset;
 						if (t.unify(macro :Bool)){
 							eget=macro return this.hasAttribute($v{fname});
-							eset=macro return hxtag.dom.tools.Attribute.toggleAtt(this, $v{fname},v);
+							eset=macro return cast hxtag.dom.tools.Attribute.toggleAttTo(this, $v{fname},v);
 						}else if (t.unify(macro :String)){
 							eget=macro return this.getAttribute($v{fname});
 							eset=macro return cast this.setAttribute($v{fname},v);
@@ -124,12 +124,7 @@ class TagBuilder
 						//TODO maybe validate arguments
 						var changedFn=fields.find(function(f) return f.name==changedFnName && f.kind.match(FFun(_)));
 						if (changedFn!=null){
-							observers.push(f.name);
-							// var arg_name=attributeChangedCallback.args[0].name;
-							// var arg_old=attributeChangedCallback.args[1].name;
-							// var arg_new=attributeChangedCallback.args[2].name;
-							// attributeChangedCallbackExprs.push(macro if ($i{arg_name}==$v{fname}) $i{changedFnName}($i{arg_old},$i{arg_new}));
-						}
+							observers.push(f.name);						}
 						var get={
 							name:'get_$fname',
 							kind:FFun({

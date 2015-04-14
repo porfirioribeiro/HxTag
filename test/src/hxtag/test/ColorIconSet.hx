@@ -13,12 +13,11 @@ import hxtag.Dom;
  * @author Porfirio
  */
 @:name("color")
-class ColorIconSet extends IconSet{
-	public function new() {
-		super();
-	}
+class ColorIconSet implements IconSet{
+	public function new() {}
 
-	override public function applyIcon(icon:Icon, name:String) {
+	public var iconSize = 24;
+	public function applyIcon(icon:Icon, name:String) {
 		trace('Applying icon: $name');
 		if (!instanceOf(icon.iconset,ColorIconSet)){
 			// icon.reset(hx.Btn.create());

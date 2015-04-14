@@ -5,6 +5,7 @@
 package hx;
 
 import hxtag.Dom.*;
+import hxtag.tools.Log;
 using hxtag.DomTools;
 import js.html.Event;
 
@@ -18,6 +19,9 @@ class Btn extends hxtag.Tag{
 	public var checked:Bool;
 	@:Attribute
 	public var checkable:Bool;
+	/**
+	 * Set's the icon of this Button @see hx.Icon#icon
+	 */
 	@:Attribute
 	public var icon:String;
 
@@ -41,12 +45,14 @@ class Btn extends hxtag.Tag{
 		if (checked)
 			checkable = true;
 		if (checkable)
-			on("click",_clicked);
+			on("click", _clicked);
 	}
 	public function detachedCallback() {
 // 		trace(this);
 	}
-	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){}
+	function attributeChangedCallback(attrName:String, oldVal:String, newVal:String){
+		//trace(attrName);
+	}
 
 	function icon_changed(o:String,icon:String){
 		if (_icon==null){
@@ -55,8 +61,11 @@ class Btn extends hxtag.Tag{
 		}
 		_icon.icon=icon;
 	}
+	function checked_changed(old:Dynamic, n:Dynamic) {
+			Log.v('Checked: ',checked);
+	}
 	function _clicked(e:js.html.Event){
-		checked=!checked;
+		toggleAtt("checked");
 		dispatchEvent(new Event("change"));
 		if (buttonGroup != null) {
 			if (buttonGroup.exclusive) {

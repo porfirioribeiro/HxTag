@@ -11,13 +11,13 @@ import hxtag.Dom;
  * ...
  * @author Porfirio
  */
-class Src extends IconSet{
+class Src implements IconSet{
 
-	public function new() {
-		super();
-	}
+	public function new() {}
 
-	override public function applyIcon(icon:Icon, name:String) {
+	public var iconSize = 24;
+	
+	public function applyIcon(icon:Icon, name:String) {
 		trace('Applying icon: $name ');
 		if (!instanceOf(icon.iconset,Src)){
 			icon.reset(Dom.create("div"));

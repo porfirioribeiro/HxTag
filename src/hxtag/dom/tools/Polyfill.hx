@@ -13,6 +13,7 @@ import hxtag.dom.Element;
 #end
 
 @:keepInit
+@:remove
 class Polyfill {
 
 	@:noUsing

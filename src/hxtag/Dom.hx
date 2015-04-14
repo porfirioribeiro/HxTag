@@ -59,8 +59,6 @@ class Dom {
 
 	macro public static function create(name:String,t:Expr=null){
 		var ts = t.toString();
-
-
 		var type=if (ts == "null")
 			try{
 				Context.getType(tagToClass(name)).type();
@@ -76,6 +74,10 @@ class Dom {
 		return switch (tag){
 			case 'a':'js.html.AnchorElement';
 			case 'br': 'js.html.BRElement';
+			case t if (t.indexOf("-") != -1):
+				var p = t.split("-");
+				var k = p.pop();
+				p.join(".") + '.' + k.capitalize();
 			case t : 'js.html.'+t.capitalize()+'Element';
 		};
 	}

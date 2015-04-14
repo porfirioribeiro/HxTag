@@ -7,6 +7,7 @@ package hxtag;
 
 
 class  DomTools {}
+typedef HqToolsAttribute = hxtag.dom.tools.Attribute;
 typedef HqToolsEvent = hxtag.dom.tools.Event;
 //typedef HqToolsCascade=hxtag.dom.tools.Cascade;
 typedef HqToolsData = hxtag.dom.tools.Data;

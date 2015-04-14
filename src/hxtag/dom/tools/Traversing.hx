@@ -11,11 +11,12 @@ import haxe.macro.Context;
 import hxtag.macro.Tools;
 using hxtag.macro.Tools;
 #else
- import hxtag.dom.Element;
-//import js.html.Element;
-import js.html.Node;
+import hxtag.dom.Element;
 import hxtag.dom.ElementList;
+import hxtag.tools.JS;
+import js.html.Node;
 using hxtag.DomTools;
+//import js.html.Element;
 //typedef Element = js.html.DOMElement;
 #end
 
@@ -44,22 +45,22 @@ class Traversing {
 		trace("add element"+e.className);
 	}
 
-	public static inline function is<T:Node>(e:Node,t:Class<T>):Bool
-		return untyped __instanceof__(e,t);	
+	//public static inline function is<T:js.html.Node>(e:js.html.Node,t:Class<T>):Bool
+	//return JS.instanceOf(e,t);	
 
 // 	public static inline function as<T:Node>(e:Node, t:Class<T>):T {
 // 		return (untyped if (__instanceof__(e, t)) e );
 // 	}
-
+ 
 	public static function parent(e:Element,selector:String=null):Element{
 		var parent:Element = cast e.parentNode;
 		if (selector!=null )
 			return (parent!=null && parent.nodeType==Node.ELEMENT_NODE && parent.matches(selector))? parent:null;
 		return (parent!=null && parent.nodeType != Node.DOCUMENT_FRAGMENT_NODE ) ? parent : null;
 	}
-
-	public static inline function parentT<T:Element>(e:Element,t:Class<T>):T untyped
-		return (untyped if (__instanceof__(e.parentNode, t)) e.parentNode );
+	
+	public static inline function parentT<T:Element>(e:Element,t:Class<T>):T 
+		return cast (if (JS.instanceOf(e.parentNode, t)) e.parentNode);
 
 	public static function parents(e:Element,selector:String=null):Element{
 		return null;

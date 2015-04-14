@@ -4,6 +4,7 @@
 
 package hx;
 
+import hxtag.IconSets;
 import hxtag.IconSet;
 import hxtag.Tag;
 import hxtag.Dom;
@@ -17,6 +18,7 @@ import hxtag.dom.Element;
 class Icon extends Tag
 {
 	//@:Attribute public var src:String;
+	
 	@:Attribute public var icon:String;
 	public var iconset(default, null):IconSet;
 
@@ -38,11 +40,11 @@ class Icon extends Tag
 		Log.e_if(parts.length != 2, "Icon should be in the form of 'iconset:icon-name'");
 		var iconSet = parts.shift();
 		var icon = parts.join(":");
-		if (!IconSet.has(iconSet)) {
+		if (!IconSets.has(iconSet)) {
 			Log.w('IconSet: \'$iconSet\' does not exis or is not resgisted');
 			return;
 		}
-		var _iconset=IconSet.get(iconSet);
+		var _iconset = IconSets.get(iconSet);
 		_iconset.applyIcon(this, icon);
 		iconset=_iconset;
 	}

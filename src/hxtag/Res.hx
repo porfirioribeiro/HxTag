@@ -7,5 +7,5 @@ package hxtag;
 /**
  * @author Porfírio
  */
-
+@:remove
 interface Res {}

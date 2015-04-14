@@ -10,7 +10,7 @@
 #-D no-macro-cache
 -D js-es5
 -D analizer
-
+-D dce-debug
 #--times
 
 #We can build hxtag directly from hxml
