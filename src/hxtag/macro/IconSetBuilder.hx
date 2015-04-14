@@ -31,19 +31,16 @@ class IconSetBuilder{
 		var type:AType = Context.getLocalType();
 		var pos = Context.currentPos();
 		var name = getName(klass);
-		//trace(name);
-
+		
 		klass.meta.add(':keepInit', [], pos);
+		klass.meta.add(':keep', [], pos);
 		fields.push({
 			name:"__init__",
 			pos:pos,
 			access:[APublic, AStatic, AInline],
-			meta:[{
-				name:":keep",
-				pos:pos
-			}],
+			meta:[],
 			kind:FFun( {
-				expr:macro untyped hxtag.IconSet.__iconSets[$v{name}]=new $type(),
+				expr:macro untyped __js__('__iconSets.{0}={1}',$i{name},new $type()),
 				ret:macro : Void,
 				args:[]
 			})
