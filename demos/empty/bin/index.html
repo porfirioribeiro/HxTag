@@ -20,5 +20,8 @@
 			<hx-btn onclick="if (window.process) process.exit()">Exit</hx-btn>
 		</hx-btn-group>
 	</div>
+	<script>
+		if (this.process)	this.process.mainModule.exports.init();
+	</script>
 </body>
 </html>

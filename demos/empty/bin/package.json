@@ -2,9 +2,13 @@
 	"name": "Empty",
 	"description": "Empty HxTag Demo",
 	"main": "index.html",
+	"node-main": "nw-script.js",
 	"window":{
 			"title": "Empty Hx-Tag Demo",
 			"toolbar": true,
-			"show": true
-	}
+			"show": false
+	},
+	
+	"show-dev-tools":true,
+	"save-window-state":true
 }
