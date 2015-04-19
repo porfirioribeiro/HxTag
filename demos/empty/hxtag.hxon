@@ -1,5 +1,5 @@
 {
     stylus: {
-        css: "empty.css",
+        css: "main.css",
     }
 }

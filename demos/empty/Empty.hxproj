@@ -4,7 +4,7 @@
   <output>
     <movie outputType="CustomBuild" />
     <movie input="" />
-    <movie path="bin\empty.js" />
+    <movie path="bin\main.js" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />

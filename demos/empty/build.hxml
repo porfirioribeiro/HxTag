@@ -8,4 +8,4 @@
 -D js-es5
 -D analizer
 -D no-macro-cache
--js bin/empty.js
+-js bin/main.js
