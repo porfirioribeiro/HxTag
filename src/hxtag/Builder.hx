@@ -91,7 +91,8 @@ class Builder
 	
 
     public static function build() {
-
+		if (Context.defined("display"))
+			return;
 		out('HxTag: Start Building');
         if (!FileSystem.exists(FILE)) {
             die('File "$FILE" not found in project root');
