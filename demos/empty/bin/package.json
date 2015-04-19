@@ -1,0 +1,10 @@
+{
+	"name": "Empty",
+	"description": "Empty HxTag Demo",
+	"main": "index.html",
+	"window":{
+			"title": "Empty Hx-Tag Demo",
+			"toolbar": true,
+			"show": true
+	}
+}

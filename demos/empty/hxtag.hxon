@@ -1,0 +1,5 @@
+{
+    stylus: {
+        css: "empty.css",
+    }
+}

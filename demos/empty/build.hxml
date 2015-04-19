@@ -1,0 +1,11 @@
+# HxTag - Custom Elements for Haxe-JS
+# https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
+
+-cp src
+-lib hxtag
+-main demos.empty.Main
+-dce full
+-D js-es5
+-D analizer
+-D no-macro-cache
+-js bin/empty.js
