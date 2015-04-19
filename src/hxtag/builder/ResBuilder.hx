@@ -100,7 +100,7 @@ class ResBuilder implements BaseBuilder
 
 	public function finish() {
 		for (fi in filesToCopy){
-			trace('Copying file ${fi.from} to ${fi.to}');
+			//trace('Copying file ${fi.from} to ${fi.to}');
 			File.copy(fi.from,fi.to);
 		}
 	}

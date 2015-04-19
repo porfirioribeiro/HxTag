@@ -76,13 +76,22 @@ class Builder
 	}
 
 
+	static var TARGET = "hxtag_target";
 
+	static var targets:Array<String> = [];
+	static var builders:Array<BaseBuilder> = [];
+	
 	static var buildCalled = false;
+	
+	public static function buildCmd(args:Array<String> = null) {
+		if (args != null)
+			targets=targets.concat(args);
+	}
 
-    public static function build(args:Array<String> = null) {
-		if (buildCalled)
-			return Sys.println("Warning: Builder.build is being called for the 2º time!");
-		buildCalled = true;
+	
+
+    public static function build() {
+
 		out('HxTag: Start Building');
         if (!FileSystem.exists(FILE)) {
             die('File "$FILE" not found in project root');
@@ -103,14 +112,26 @@ class Builder
 		if (Context.defined("debug"))
 			options.debug = true;
 
-		var builders:Array<BaseBuilder> = [];
-		for (i in 0...args.length) {
-			var arg = args[i];
+			
+		var t = Context.definedValue(TARGET);
+		if (t != null) {
+			targets=targets.concat(t.split(';'));
+		}
+		
+		for (i in 0...targets.length) {
+			var arg = targets[i];
 			switch (arg) {
 				case "stylus":
 					builders.push(new StylusBuilder());
 				case "res":
 					builders.push(new ResBuilder());
+				case "all":
+					builders.push(new StylusBuilder());
+					builders.push(new ResBuilder());
+					break;
+				case "none":
+					builders = [];
+					break;
 				case x:
 					Sys.println('Argument $x not valid');
 					Sys.exit(1);
@@ -120,10 +141,6 @@ class Builder
 
 
 
-		if (builders.length == 0) {
-			builders.push(new StylusBuilder());
-			builders.push(new ResBuilder());
-		}
 
 		var shouldProcess = builders.fold(function (b,should) {return should || b.shouldProcess();} , false);
 

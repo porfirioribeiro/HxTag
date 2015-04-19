@@ -5,14 +5,7 @@
 -lib hxtag
 -main hxtag.test.Main
 -dce full
--debug
-
 #-D no-macro-cache
 -D js-es5
 -D analizer
--D dce-debug
-#--times
-
-#We can build hxtag directly from hxml
-# --macro hxtag.Builder.build(["stylus","res"])
 -js bin/HxTag-test.js

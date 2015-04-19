@@ -12,7 +12,7 @@ typedef HqToolsEvent = hxtag.dom.tools.Event;
 //typedef HqToolsCascade=hxtag.dom.tools.Cascade;
 typedef HqToolsData = hxtag.dom.tools.Data;
 typedef HqToolsCss = hxtag.dom.tools.Css;
-typedef HqToolsPolyfill = hxtag.dom.tools.Polyfill;
+//typedef HqToolsPolyfill = hxtag.dom.tools.Polyfill;
 
 typedef HqToolsTraversing = hxtag.dom.tools.Traversing;
 typedef HqToolsTraversingList = hxtag.dom.tools.Traversing.TraversingList;

@@ -34,6 +34,7 @@ class IconSetBuilder{
 		
 		klass.meta.add(':keepInit', [], pos);
 		klass.meta.add(':keep', [], pos);
+		trace('building $className');
 		fields.push({
 			name:"__init__",
 			pos:pos,

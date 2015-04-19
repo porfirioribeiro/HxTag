@@ -15,6 +15,7 @@ import hxtag.dom.Element;
  * @author ...
  */
 @:stylus
+@:keepInit
 class Icon extends Tag
 {
 	//@:Attribute public var src:String;
@@ -55,5 +56,9 @@ class Icon extends Tag
 		if (el==null) return;
 		element=el;
 		appendChild(element);
+	}
+	
+	static function __init__() :Void {
+		untyped __js__('var __iconSets = { }');
 	}
 }

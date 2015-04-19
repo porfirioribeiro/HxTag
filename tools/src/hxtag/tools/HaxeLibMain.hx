@@ -56,10 +56,11 @@ class HaxeLibMain
 			}
 		}
 
-		var fnArgs = fArgs.length > 0?'["' + fArgs.join('","') + '"]':"[]";
+		var fnArgs = fArgs.length > 0?'[\'' + fArgs.join('\',\'') + '\']':"[]";
+		trace(fnArgs);
 
 		var runArgs = [
-			hxml, "-lib", "hxtag", "-D", "no-macro-cache", "--macro", 'hxtag.Builder.build($fnArgs)'
+			hxml, "-lib", "hxtag", "-D", "no-macro-cache", "--macro", 'hxtag.Builder.buildCmd($fnArgs)'
 		].concat(hxArgs);
 
 		Sys.setCwd(rundir);

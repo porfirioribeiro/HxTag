@@ -14,9 +14,11 @@ import hxtag.dom.Element;
 
 @:keepInit
 @:remove
+@:ifFeature("Polyfill.matches")
 class Polyfill {
 
 	@:noUsing
+	
 	macro public static function getVendorFn(o:Dynamic,name:String,def:String=null){
 		var pos=Context.currentPos();
 		if (def==null)
