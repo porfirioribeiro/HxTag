@@ -8,10 +8,11 @@
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
-    <movie version="14" />
+    <movie version="0" />
     <movie minorVersion="0" />
     <movie platform="hxml" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="Haxe 3.2.0;3.2.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -40,13 +41,13 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>$(CompilerPath)\haxelib run hxtag -c -$(BuildConfig) $(TargetBuild)</preBuildCommand>
+  <preBuildCommand>$(CompilerPath)\haxelib run hxtag  -$(BuildConfig) $(TargetBuild)</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
+    <option testMovie="Unknown" />
     <option testMovieCommand="" />
     <option defaultBuildTargets="none,all,stylus,res" />
   </options>

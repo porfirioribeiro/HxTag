@@ -3,6 +3,7 @@
 // https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
 package hxtag.builder;
+import hxtag.macro.Metas;
 #if macro
 import haxe.io.Path;
 import sys.io.File;
@@ -10,8 +11,8 @@ import sys.FileSystem;
 import haxe.macro.Context;
 import hxtag.Builder;
 import hxtag.builder.BuildOptions;
-import hxtag.macro.AType;
-using hxtag.macro.Tools;
+import macrox.AType;
+using macrox.Tools;
 
 #end
 typedef ResDef = {
@@ -54,7 +55,8 @@ class ResBuilder implements BaseBuilder
 
 	public function processType(t:AType) {
                 var c = t.getClass();
-                var resMetas = c.meta.getMeta(":res");
+                var resMetas = Metas.Res.getAllExprFrom(c);
+                //var resMetas = c.meta.getMeta(":res");
                 if (resMetas == null)
                     return;
 

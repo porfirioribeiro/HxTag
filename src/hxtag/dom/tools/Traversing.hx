@@ -8,8 +8,7 @@ package hxtag.dom.tools;
 #if macro
 import haxe.macro.Expr;
 import haxe.macro.Context;
-import hxtag.macro.Tools;
-using hxtag.macro.Tools;
+using macrox.Tools;
 #else
 import hxtag.dom.Element;
 import hxtag.dom.ElementList;

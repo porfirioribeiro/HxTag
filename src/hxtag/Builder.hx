@@ -13,7 +13,7 @@ import hxtag.builder.StylusBuilder;
 #if macro
 import haxe.io.Eof;
 import haxe.macro.Compiler;
-import hxtag.macro.Hxon;
+import macrox.Hxon;
 import sys.io.File;
 import sys.io.Process;
 using StringTools;
@@ -21,7 +21,8 @@ using Lambda;
 import haxe.macro.Expr;
 import haxe.macro.Context;
 import haxe.macro.Type;
-using hxtag.macro.Tools;
+using macrox.Tools;
+//using hxtag.macro.Tools;
 
 import sys.FileSystem;
 import haxe.io.Path;
@@ -154,7 +155,7 @@ class Builder
 			Context.onGenerate(function(types) {
 				//trace("onGenerate: stylus");
 				for (_t in types) {
-					var t = _t.type();
+					var t = _t.aType();
 					if (!t.unify(macro : hxtag.Res))
 						continue;
 					out('Processing $t');

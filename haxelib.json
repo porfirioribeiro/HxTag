@@ -6,5 +6,8 @@
     "version": "0.0.1",
     "releasenote": "First Release",
     "contributors": ["porfirio"],
-    "classPath": "src"
+    "classPath": "src",
+  "dependencies": {
+    "MacroX": ""
+  }
 }

@@ -7,8 +7,11 @@ package hxtag.macro;
 import haxe.macro.Expr;
 import haxe.macro.Context;
 import haxe.macro.Type.ClassType;
+import macrox.AMetadata;
+import macrox.HxMetas;
+import macrox.AType;
 
-using hxtag.macro.Tools;
+using macrox.Tools;
 using Lambda;
 using StringTools;
 using hxtag.tools.StringTools;
@@ -43,30 +46,20 @@ class TagBuilder
 			})
 		});
 
-		//test
-		//trace("exists ", Metas.Test.existsOn(klass));
-		////Metas.Test.addToType(klass, [macro "testss"], klass.pos);
-		//klass.meta.get().push( {
-			//name:Metas.Test,
-			//params:[macro "testss"], 
-			//pos: klass.pos
-		//});
-		//
-		//trace("exists ", Metas.Test.existsOn(klass));
-
 		//tag
-		if (!Metas.NoTag.existsOn(klass)){
-			var tagMeta = Metas.Tag.getFrom(klass);
+		if (!Metas.NoTag.existsOn(klass)) {
 			var tag = klass.pack.join("-")+"-"+klass.name.uncamelize();
+			var tagMeta = Metas.Tag.getAllExprFrom(klass);
             if (tagMeta != null && tagMeta.length == 1)
                 tag=tagMeta[0].getValue();
 			else {
 				//Metas.Tag.addToType(klass, [macro $v{tag}], klass.pos);
 				//Metas.Tag.addTo(klass.meta.get());
-                klass.meta.add(Metas.Tag, [macro $v{tag}],klass.pos);
+				Metas.Tag.addTo(klass, [macro $v {tag}], klass.pos);
+                //klass.meta.add(Metas.Tag, [macro $v{tag}],klass.pos);
 			}
-
-			klass.meta.add(":keepInit",[],klass.pos);
+			HxMetas.KeepInit.addTo(klass, [], klass.pos);
+			//klass.meta.add(":keepInit",[],klass.pos);
 
 
 			fields.push({
@@ -106,7 +99,8 @@ class TagBuilder
 				// 	f.meta.add(":keep",[],f.pos);
 				case FFun(fn):
 					if (~/(creat|attach|detach|attributeChang)edCallback/g.match(f.name))
-						f.meta.add(":keep",[],f.pos);
+						HxMetas.Keep.addTo(f, [], f.pos);
+						//f.meta.add(":keep",[],f.pos);
 					if (f.name=="createdCallback"){
 						createdCallback=fn;
 					} else if (f.name=="attributeChangedCallback")
@@ -121,8 +115,9 @@ class TagBuilder
 			var fname=f.name;
 			switch (f.kind) {
 				case FVar(t,e):
-					var fw=f.meta.getMeta(":Attribute");
-					if (fw!=null){
+					//var fw=f.meta.getMeta(":Attribute");
+					//trace(f.meta,fname);
+					if (Metas.Attribute.existsOn(f)){
  						f.kind=FProp("get","set",t,e);
 						var eget,eset;
 						if (t.unify(macro :Bool)){

@@ -7,8 +7,8 @@ import haxe.macro.Type.ClassType;
 #if (macro || display)
 import haxe.macro.Context;
 import haxe.macro.Expr;
-
-using hxtag.macro.Tools;
+import macrox.AType;
+using macrox.Tools;
 using StringTools;
 /**
  * ...
@@ -34,7 +34,7 @@ class IconSetBuilder{
 		
 		klass.meta.add(':keepInit', [], pos);
 		klass.meta.add(':keep', [], pos);
-		trace('building $className');
+		//trace('building $className');
 		fields.push({
 			name:"__init__",
 			pos:pos,

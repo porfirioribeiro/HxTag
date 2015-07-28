@@ -3,18 +3,19 @@
 // https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
 package hxtag.builder;
+import hxtag.macro.Metas;
 #if macro
 import haxe.io.Eof;
 import haxe.io.Path;
 import haxe.macro.Context;
 import hxtag.builder.BuildOptions;
-import hxtag.macro.AType;
+import macrox.AType;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
 
-using hxtag.macro.Tools;
+using macrox.Tools;
 using hxtag.builder.DynTools;
 
 class StylusBuilder implements BaseBuilder
@@ -102,7 +103,8 @@ class StylusBuilder implements BaseBuilder
 	public function processType(t:AType):Void {
 
 		var c = t.getClass();
-		var stylusMeta = c.meta.getMeta(":stylus");
+		var stylusMeta = Metas.Stylus.getAllExprFrom(c);
+		//var stylusMeta = c.meta.getMeta(":stylus");
 		if (stylusMeta == null)
 			return;
 
@@ -123,7 +125,8 @@ class StylusBuilder implements BaseBuilder
 			return;
 		}
 
-		var tagMeta = c.meta.getMeta(":tag");
+		var tagMeta = Metas.Tag.getAllExprFrom(c);
+		//var tagMeta = c.meta.getMeta(":tag");
 		if (tagMeta != null && tagMeta.length == 1) {
 			var file = Path.withExtension(tagMeta[0].getValue(), "styl");
 			var fileOnStylusDir = Path.join([stylusDir, file]);

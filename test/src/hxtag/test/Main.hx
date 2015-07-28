@@ -13,7 +13,7 @@ using hxtag.DomTools;
 //Tags
 import hx.Btn;
 //import hx.Menu;
-//import hxtag.test.MyTag;
+import hxtag.test.MyTag;
 import tags.Other;
 
 import hx.Icon;

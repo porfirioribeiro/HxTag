@@ -3,7 +3,7 @@
 // https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
 package hxtag.builder;
-import hxtag.macro.AType;
+import macrox.AType;
 
 
 /**

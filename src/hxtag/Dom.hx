@@ -9,7 +9,7 @@ package hxtag;
 #if (macro || display)
 import haxe.macro.Expr;
 import haxe.macro.Context;
-using hxtag.macro.Tools;
+using macrox.Tools;
 #end
 using hxtag.tools.StringTools;
 
@@ -41,7 +41,7 @@ class Dom {
 		var type=if (ts == "null")
 			macro : js.html.Element;
 		else
-			Context.getType(t.toString()).type();
+			Context.getType(t.toString()).aType();
 		return macro (cast $q : $type);
 	}
 	
@@ -80,12 +80,12 @@ class Dom {
 		var ts = t.toString();
 		var type=if (ts == "null")
 			try{
-				Context.getType(tagToClass(name)).type();
+				Context.getType(tagToClass(name)).aType();
 			}catch(e:Dynamic){
 				macro : js.html.Element;
 			}
 		else
-			Context.getType(ts).type();
+			Context.getType(ts).aType();
 		return macro (cast hxtag.Dom.document.createElement($v{name}) : $type);
 	}
 
