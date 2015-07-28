@@ -3,17 +3,33 @@
   <!-- Output SWF options -->
   <output>
     <movie outputType="Application" />
+    <movie input="" />
     <movie path="build.hxml" />
+    <movie fps="30" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="14" />
+    <movie minorVersion="0" />
     <movie platform="hxml" />
+    <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
+    <class path="src" />
   </classpaths>
   <!-- Build options -->
   <build>
+    <option directives="js-es5&#xA;analizer&#xA;no-macro-cache" />
+    <option flashStrict="False" />
+    <option noInlineOnDebug="False" />
+    <option mainClass="demos.attributes.Main" />
+    <option enabledebug="False" />
+    <option additional="# HxTag - Custom Elements for Haxe-JS # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE&#xA;-dce full" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
+    <library name="MacroX" />
+    <library name="HxTag" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
@@ -29,6 +45,9 @@
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Default" />
+    <option testMovieCommand="" />
     <option defaultBuildTargets="none,all,stylus,res" />
   </options>
   <!-- Plugin storage -->

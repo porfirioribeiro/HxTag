@@ -2,10 +2,11 @@
 # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE
 
 -cp src
--lib hxtag
+-lib MacroX
+-lib HxTag
 -main hxtag.test.Main
 -dce full
-#-D no-macro-cache
+-D no-macro-cache
 -D js-es5
 -D analizer
 -js bin/HxTag-test.js

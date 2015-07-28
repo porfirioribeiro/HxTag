@@ -2,15 +2,15 @@
 <project version="2">
   <!-- Output SWF options -->
   <output>
-    <movie outputType="CustomBuild" />
+    <movie outputType="Application" />
     <movie input="" />
-    <movie path="" />
+    <movie path="build.hxml" />
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
     <movie version="14" />
     <movie minorVersion="0" />
-    <movie platform="AIR" />
+    <movie platform="hxml" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -19,39 +19,36 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="" />
+    <option directives="no-macro-cache&#xA;js-es5&#xA;analizer" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="hxtag.test.Main" />
     <option enabledebug="False" />
-    <option additional="" />
+    <option additional="# HxTag - Custom Elements for Haxe-JS # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE&#xA;-dce full" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <library name="hxtag" />
+    <library name="MacroX" />
+    <library name="HxTag" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
     <!-- example: <compile path="..." /> -->
   </compileTargets>
-  <!-- Assets to embed into the output SWF -->
-  <library>
-    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
-  </library>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>$(CompilerPath)\haxelib run hxtag --connect 6000 -$(BuildConfig) $(TargetBuild)</preBuildCommand>
+  <preBuildCommand>$(CompilerPath)\haxelib run hxtag -c -$(BuildConfig) $(TargetBuild)</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Custom" />
-    <option testMovieCommand="nw bin" />
-    <option defaultBuildTargets="all,none,stylus,res" />
+    <option testMovie="Default" />
+    <option testMovieCommand="" />
+    <option defaultBuildTargets="none,all,stylus,res" />
   </options>
   <!-- Plugin storage -->
   <storage />

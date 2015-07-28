@@ -76,7 +76,7 @@ class Dom {
 	 * @param	name The tag name
 	 * @param	t Optional infered type. Warning: no cast check is done!
 	 */
-	macro public static function create(name:String,t:Expr=null){
+	macro public static function create<T>(name:String,t:Expr=null):ExprOf<T>{
 		var ts = t.toString();
 		var type=if (ts == "null")
 			try{

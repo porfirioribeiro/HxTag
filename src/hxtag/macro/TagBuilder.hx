@@ -6,6 +6,7 @@ package hxtag.macro;
 
 import haxe.macro.Expr;
 import haxe.macro.Context;
+import haxe.macro.Type.ClassType;
 
 using hxtag.macro.Tools;
 using Lambda;
@@ -18,7 +19,7 @@ class TagBuilder
 	public static function build(){
 
 		var fields = Context.getBuildFields();
-		var klass = Context.getLocalClass().get();
+		var klass:ClassType = Context.getLocalClass().get();
 		var className = Context.getLocalClass().toString();
 		var type:AType = Context.getLocalType();
 		var pos = Context.currentPos();
@@ -42,17 +43,28 @@ class TagBuilder
 			})
 		});
 
+		//test
+		//trace("exists ", Metas.Test.existsOn(klass));
+		////Metas.Test.addToType(klass, [macro "testss"], klass.pos);
+		//klass.meta.get().push( {
+			//name:Metas.Test,
+			//params:[macro "testss"], 
+			//pos: klass.pos
+		//});
+		//
+		//trace("exists ", Metas.Test.existsOn(klass));
 
 		//tag
-
-		var noTagMeta =klass.meta.getMeta(":noTag");
-		if (noTagMeta==null){
-			var tagMeta =klass.meta.getMeta(":tag");
+		if (!Metas.NoTag.existsOn(klass)){
+			var tagMeta = Metas.Tag.getFrom(klass);
 			var tag = klass.pack.join("-")+"-"+klass.name.uncamelize();
             if (tagMeta != null && tagMeta.length == 1)
                 tag=tagMeta[0].getValue();
-			else
-                klass.meta.add(":tag", [macro $v{tag}],klass.pos);
+			else {
+				//Metas.Tag.addToType(klass, [macro $v{tag}], klass.pos);
+				//Metas.Tag.addTo(klass.meta.get());
+                klass.meta.add(Metas.Tag, [macro $v{tag}],klass.pos);
+			}
 
 			klass.meta.add(":keepInit",[],klass.pos);
 
@@ -161,48 +173,48 @@ class TagBuilder
 		for (name in observers){
 			createdCallbackExpr=macro {if (this.hasAttribute($v{name})) $i{name+"_changed"}(null,$i{name});$createdCallbackExpr; };
 		}
-		if (createdCallback!=null){
-			createdCallback.expr=macro {$createdCallbackExpr; ${createdCallback.expr}};
-		} else {
-			fields.push({
-				name:"createdCallback",
-				meta:[{"name":":keep",pos:pos}],
-				pos:pos,
-				access:[],
-				kind:FFun( {
-					expr:createdCallbackExpr,
-					ret:macro : Void,
-					args:[]
-				})
-			});
-		}
-		var attributeChangedCallbackExpr:Expr=macro {};
+		//if (createdCallback!=null){
+			//createdCallback.expr=macro {$createdCallbackExpr; ${createdCallback.expr}};
+		//} else {
+			//fields.push({
+				//name:"createdCallback",
+				//meta:[{"name":":keep",pos:pos}],
+				//pos:pos,
+				//access:[],
+				//kind:FFun( {
+					//expr:createdCallbackExpr,
+					//ret:macro : Void,
+					//args:[]
+				//})
+			//});
+		//}
 		var aCC=attributeChangedCallback;
 		var arg_name=(aCC!=null)?aCC.args[0].name:"name";
 		var arg_old =(aCC!=null)?aCC.args[1].name:"o";
 		var arg_new =(aCC!=null)?aCC.args[2].name:"n";
+		var attributeChangedCallbackExpr:Expr=macro dispatchEvent(new js.html.CustomEvent($i{arg_name}+':changed',{ detail:{oldValue:$i{arg_old},newValue:$i{arg_new} }} ));
 		for (name in observers){
 			attributeChangedCallbackExpr=macro {if ($i{arg_name}==$v{name}) $i{name+"_changed"}($i{arg_old},$i{arg_new});$attributeChangedCallbackExpr;};
 		}
-		if (aCC!=null){
-			attributeChangedCallback.expr=macro {$attributeChangedCallbackExpr; ${attributeChangedCallback.expr}};
-		}else{
-			fields.push({
-				name:"attributeChangedCallback",
-				meta:[{"name":":keep",pos:pos}],
-				pos:pos,
-				access:[],
-				kind:FFun( {
-					expr:attributeChangedCallbackExpr,
-					ret:macro : Void,
-					args:[
-						{name:arg_name,type:macro : String},
-						{name:arg_old ,type:macro : String},
-						{name:arg_new ,type:macro : String}
-					]
-				})
-			});
-		}
+		//if (aCC!=null){
+			//attributeChangedCallback.expr=macro {$attributeChangedCallbackExpr; ${attributeChangedCallback.expr}};
+		//}else{
+			//fields.push({
+				//name:"attributeChangedCallback",
+				//meta:[{"name":":keep",pos:pos}],
+				//pos:pos,
+				//access:[],
+				//kind:FFun( {
+					//expr:attributeChangedCallbackExpr,
+					//ret:macro : Void,
+					//args:[
+						//{name:arg_name,type:macro : String},
+						//{name:arg_old ,type:macro : String},
+						//{name:arg_new ,type:macro : String}
+					//]
+				//})
+			//});
+		//}
 		return fields;
 	}
 

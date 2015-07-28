@@ -4,7 +4,7 @@
 -cp src
 -lib MacroX
 -lib HxTag
--main demos.empty.Main
+-main demos.attributes.Main
 -dce full
 -D js-es5
 -D analizer

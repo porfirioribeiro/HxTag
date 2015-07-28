@@ -2,16 +2,17 @@
 <project version="2">
   <!-- Output SWF options -->
   <output>
-    <movie outputType="CustomBuild" />
+    <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\tools.js" />
+    <movie path="build.hxml" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
-    <movie version="1" />
+    <movie version="0" />
     <movie minorVersion="0" />
-    <movie platform="JavaScript" />
+    <movie platform="hxml" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="Haxe 3.2.0;3.2.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -19,12 +20,12 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="nodejs" />
+    <option directives="" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
-    <option mainClass="hxtag.tools.Main" />
+    <option mainClass="hxtag.tools.HaxeLibMain" />
     <option enabledebug="False" />
-    <option additional="-dce full" />
+    <option additional="# HxTag - Custom Elements for Haxe-JS # https://github.com/porfirioribeiro/HxTag/blob/master/LICENSE" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -39,7 +40,7 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>$(CompilerPath)\haxe build.hxml</preBuildCommand>
+  <preBuildCommand>$(CompilerPath)\haxe $(OutputFile)</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="True" />
   <!-- Other project options -->

@@ -1,0 +1,14 @@
+{
+	"name": "Attributes",
+	"description": "Attributes Demo",
+	"main": "index.html",
+	"node-main": "nw-script.js",
+	"window":{
+			"title": "Attributes Demo",
+			"toolbar": true,
+			"show": false
+	},
+	
+	"show-dev-tools":true,
+	"save-window-state":true
+}

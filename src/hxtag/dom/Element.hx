@@ -4,7 +4,8 @@
 
 package hxtag.dom;
 
-typedef Element = js.html.DOMElement;
+//typedef Element = js.html.DOMElement;
+typedef Element = js.html.Element;
 //
 //import js.html.EventTarget;
 //import js.html.Node;
